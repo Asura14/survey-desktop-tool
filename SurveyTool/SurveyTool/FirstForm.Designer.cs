@@ -40,17 +40,17 @@
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Arial Unicode MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(12, 9);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(49, 25);
+            this.labelTitle.Size = new System.Drawing.Size(49, 26);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Title";
             // 
             // textBoxTitle
             // 
             this.textBoxTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxTitle.Location = new System.Drawing.Point(72, 10);
+            this.textBoxTitle.Location = new System.Drawing.Point(80, 10);
             this.textBoxTitle.Name = "textBoxTitle";
             this.textBoxTitle.Size = new System.Drawing.Size(425, 26);
             this.textBoxTitle.TabIndex = 1;
@@ -59,7 +59,7 @@
             // 
             this.textBoxIntro.AcceptsReturn = true;
             this.textBoxIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxIntro.Location = new System.Drawing.Point(72, 62);
+            this.textBoxIntro.Location = new System.Drawing.Point(80, 62);
             this.textBoxIntro.Multiline = true;
             this.textBoxIntro.Name = "textBoxIntro";
             this.textBoxIntro.Size = new System.Drawing.Size(425, 90);
@@ -68,17 +68,17 @@
             // labelIntro
             // 
             this.labelIntro.AutoSize = true;
-            this.labelIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIntro.Font = new System.Drawing.Font("Arial Unicode MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIntro.Location = new System.Drawing.Point(12, 61);
             this.labelIntro.Name = "labelIntro";
-            this.labelIntro.Size = new System.Drawing.Size(50, 25);
+            this.labelIntro.Size = new System.Drawing.Size(52, 26);
             this.labelIntro.TabIndex = 2;
             this.labelIntro.Text = "Intro";
             // 
             // textBoxOutro
             // 
             this.textBoxOutro.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.textBoxOutro.Location = new System.Drawing.Point(72, 181);
+            this.textBoxOutro.Location = new System.Drawing.Point(80, 181);
             this.textBoxOutro.Multiline = true;
             this.textBoxOutro.Name = "textBoxOutro";
             this.textBoxOutro.Size = new System.Drawing.Size(425, 90);
@@ -87,16 +87,16 @@
             // labelOutro
             // 
             this.labelOutro.AutoSize = true;
-            this.labelOutro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOutro.Font = new System.Drawing.Font("Arial Unicode MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOutro.Location = new System.Drawing.Point(12, 180);
             this.labelOutro.Name = "labelOutro";
-            this.labelOutro.Size = new System.Drawing.Size(61, 25);
+            this.labelOutro.Size = new System.Drawing.Size(63, 26);
             this.labelOutro.TabIndex = 4;
             this.labelOutro.Text = "Outro";
             // 
             // buttonNext
             // 
-            this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.buttonNext.Location = new System.Drawing.Point(622, 349);
             this.buttonNext.Name = "buttonNext";
             this.buttonNext.Size = new System.Drawing.Size(150, 50);
