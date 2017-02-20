@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace SurveyTool
 {
-    class Survey
+    public class Survey
     {
         public string Title { get; set; }
         public string Intro { get; set; }
@@ -21,7 +21,7 @@ namespace SurveyTool
             Intro = intro;
             Outro = outro;
             Version = 1;
-            ReleaseDate = DateTime.Today.ToString();
+            ReleaseDate = DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString();
             Questions = new List<Question>();
         }
         public Survey()
@@ -30,9 +30,8 @@ namespace SurveyTool
             Intro = "";
             Outro = "";
             Version = 1;
-            ReleaseDate = DateTime.Today.ToString();
+            ReleaseDate = DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString();
             Questions = new List<Question>();
-
         }
 
     }

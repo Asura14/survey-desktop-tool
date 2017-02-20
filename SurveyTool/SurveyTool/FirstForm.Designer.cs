@@ -43,9 +43,9 @@
             this.labelTitle.Font = new System.Drawing.Font("Arial Unicode MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(12, 9);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(49, 26);
+            this.labelTitle.Size = new System.Drawing.Size(60, 26);
             this.labelTitle.TabIndex = 0;
-            this.labelTitle.Text = "Title";
+            this.labelTitle.Text = "Titulo";
             // 
             // textBoxTitle
             // 
@@ -97,9 +97,9 @@
             // buttonNext
             // 
             this.buttonNext.Font = new System.Drawing.Font("Microsoft Sans Serif", 8.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.buttonNext.Location = new System.Drawing.Point(622, 349);
+            this.buttonNext.Location = new System.Drawing.Point(650, 300);
             this.buttonNext.Name = "buttonNext";
-            this.buttonNext.Size = new System.Drawing.Size(150, 50);
+            this.buttonNext.Size = new System.Drawing.Size(100, 50);
             this.buttonNext.TabIndex = 6;
             this.buttonNext.Text = "Next";
             this.buttonNext.UseVisualStyleBackColor = true;
@@ -109,7 +109,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(784, 411);
+            this.ClientSize = new System.Drawing.Size(584, 361);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.textBoxOutro);
             this.Controls.Add(this.labelOutro);
