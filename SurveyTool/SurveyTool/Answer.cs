@@ -16,6 +16,7 @@ namespace SurveyTool
             Title = title;
             Jump = jump;
         }
+
         public Answer()
         {
             Title = "";

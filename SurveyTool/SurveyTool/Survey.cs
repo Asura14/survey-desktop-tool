@@ -24,6 +24,7 @@ namespace SurveyTool
             ReleaseDate = DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString();
             Questions = new List<Question>();
         }
+
         public Survey()
         {
             Title = "";
@@ -33,6 +34,5 @@ namespace SurveyTool
             ReleaseDate = DateTime.Today.Day.ToString() + "/" + DateTime.Today.Month.ToString() + "/" + DateTime.Today.Year.ToString();
             Questions = new List<Question>();
         }
-
     }
 }

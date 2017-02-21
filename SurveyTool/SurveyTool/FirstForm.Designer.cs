@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(FirstForm));
             this.labelTitle = new System.Windows.Forms.Label();
             this.textBoxTitle = new System.Windows.Forms.TextBox();
             this.textBoxIntro = new System.Windows.Forms.TextBox();
@@ -117,6 +118,7 @@
             this.Controls.Add(this.labelIntro);
             this.Controls.Add(this.textBoxTitle);
             this.Controls.Add(this.labelTitle);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "FirstForm";
             this.Text = "New Survey";
             this.ResumeLayout(false);

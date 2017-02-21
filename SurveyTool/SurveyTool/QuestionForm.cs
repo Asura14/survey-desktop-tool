@@ -3,6 +3,7 @@ using System.Drawing;
 using System.Windows.Forms;
 using System.Collections.Generic;
 using Newtonsoft.Json;
+using System.ComponentModel;
 
 namespace SurveyTool
 {
@@ -31,7 +32,9 @@ namespace SurveyTool
             InitializeComponent();
             initializeControls();
             initializeOnClicks();
+            this.FormClosing += formClosingEvent;
         }
+
         private void initializeOnClicks()
         {
             this.btnAnswer.Click += new EventHandler(newAnswerClick);
@@ -42,15 +45,17 @@ namespace SurveyTool
         private void initializeControls()
         {
             //Resources
-            this.BackColor = Color.White;
+            this.BackColor = Color.FromArgb(250, 250, 250);
             this.ForeColor = Color.Black;
-            this.Text = "Nova: Pergunta " + (questions.Count + 1);
+            this.Text = "Nova | Pergunta " + (questions.Count + 1);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new System.Drawing.Size(500, 300);
             //Label - Titulo da pergunta
             this.lblTitle.Location = new System.Drawing.Point(10, 10);
-            this.lblTitle.Size = new System.Drawing.Size(50, 25);
+            this.lblTitle.Size = new System.Drawing.Size(70, 25);
+            this.lblTitle.ForeColor = Color.FromArgb(87, Color.Black);
+            this.lblTitle.Font = new Font("Roboto", this.lblTitle.Font.Size);
             this.lblTitle.Text = "Pergunta";
             // Text Box - Title
             this.txtboxTitle.Location = new System.Drawing.Point(80, 10);
@@ -58,31 +63,36 @@ namespace SurveyTool
             this.txtboxTitle.ReadOnly = false;
             //Label - Tipo de pergunta
             this.lblType.Location = new System.Drawing.Point(10, 50);
-            this.lblType.Size = new System.Drawing.Size(50, 50);
+            this.lblType.Size = new System.Drawing.Size(70, 50);
             this.lblType.Text = "Tipo de Pergunta";
+            this.lblType.ForeColor = Color.FromArgb(87, Color.Black);
+            this.lblType.Font = new Font("Roboto", this.lblType.Font.Size);
             // ComboBox - Types
-            cbType.Items.Clear();
-            cbType.Items.Insert(0, "oneof");
-            cbType.Items.Insert(1, "atleast");
-            cbType.Items.Insert(2, "dropdown");
-            cbType.Items.Insert(3, "fillstring");
-            cbType.Items.Insert(4, "fillint");
+            this.cbType.Items.Clear();
+            this.cbType.Items.Insert(0, "oneof");
+            this.cbType.Items.Insert(1, "atleast");
+            this.cbType.Items.Insert(2, "dropdown");
+            this.cbType.Items.Insert(3, "fillstring");
+            this.cbType.Items.Insert(4, "fillint");
             this.cbType.Location = new System.Drawing.Point(80, 50);
             this.cbType.Size = new System.Drawing.Size(100, 25);
             this.cbType.Sorted = true;
             this.cbType.DropDownStyle = ComboBoxStyle.DropDownList;
             //Button - Next
-            this.btnAdd.Text = "Próxima Pergunta";
+            this.btnAdd.Text = "Adicionar Pergunta";
             this.btnAdd.Location = new System.Drawing.Point(160, 200);
             this.btnAdd.Size = new System.Drawing.Size(150, 50);
+            this.btnAdd.Font = new Font("Roboto", this.lblTitle.Font.Size);
             //Button - End
             this.btnDone.Text = "Finalizar";
             this.btnDone.Location = new System.Drawing.Point(320, 200);
             this.btnDone.Size = new System.Drawing.Size(150, 50);
+            this.btnDone.Font = new Font("Roboto", this.lblTitle.Font.Size);
             //Button - Add Answer
-            this.btnAnswer.Text = "+";
+            this.btnAnswer.Image = Properties.Resources.add;
             this.btnAnswer.Location = new System.Drawing.Point(80, 90);
             this.btnAnswer.Size = new System.Drawing.Size(30, 30);
+            this.btnAnswer.Font = new Font("Roboto", this.lblTitle.Font.Size);
             //Add Controls to form
             this.Controls.Add(txtboxTitle);
             this.Controls.Add(lblTitle);
@@ -93,11 +103,10 @@ namespace SurveyTool
             this.Controls.Add(btnAnswer);
         }
 
-        protected void addClick(object sender, EventArgs e)
+        void addClick(object sender, EventArgs e)
         {
             this.title = txtboxTitle.Text;
             this.type = cbType.Text;
-
             if (title.Length > 0 && type.Length > 0)
             {
                 if(answers.Count > 0)
@@ -110,7 +119,7 @@ namespace SurveyTool
                     Console.WriteLine("Question added: " + question.Title + ", " + question.Type + ": " + answers.Count);
                     questions.Add(question);
                     //Restart question
-                    addingAnswers = false;
+                    this.addingAnswers = false;
                     this.answers.Clear();
                     this.Controls.Clear();
                     initializeControls();
@@ -129,9 +138,12 @@ namespace SurveyTool
         {
             Console.WriteLine("Total Questions" + questions.Count);
             survey.Questions = questions;
-            MessageBox.Show("Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
             saveJSONFile();
-            this.Close();
+            DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (dialog == DialogResult.OK)
+            {
+                Application.Exit();
+            }
         }
 
         protected void newAnswerClick(object sender, EventArgs e)
@@ -148,8 +160,8 @@ namespace SurveyTool
                     Console.WriteLine("Answer added: " + newAnswer.Title + " - " + newAnswer.Jump);
                     answers.Add(newAnswer);
                     MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    txtAnswerTitle.Text = "";
-                    txtAnswerJump.Value = 0;
+                    this.txtAnswerTitle.Text = "";
+                    this.txtAnswerJump.Value = 0;
                     return;
                 } else
                 {
@@ -159,26 +171,33 @@ namespace SurveyTool
             }
             if (title.Length > 0 && type.Length > 0)
             {
-                lblAnswerTitle.Text = "Resposta";
-                lblAnswerJump.Text = "Saltar para";
-                lblAnswerTitle.Location = new System.Drawing.Point(10, 100);
-                lblAnswerTitle.Size = new System.Drawing.Size(50, 25);
-                lblAnswerJump.Location = new System.Drawing.Point(10, 130);
-                lblAnswerJump.Size = new System.Drawing.Size(50, 25);
-                txtAnswerTitle.Location = new System.Drawing.Point(80, 100);
-                txtAnswerTitle.Size = new System.Drawing.Size(400, 25);
-                txtAnswerJump.Location = new System.Drawing.Point(80, 130);
-                txtAnswerJump.Size = new System.Drawing.Size(50, 25);
-                txtAnswerJump.Minimum = -1;
+                //Labels
+                this.lblAnswerTitle.Text = "Resposta";
+                this.lblAnswerJump.Text = "Saltar para";
+                this.lblAnswerTitle.Location = new System.Drawing.Point(10, 100);
+                this.lblAnswerTitle.Size = new System.Drawing.Size(70, 25);
+                this.lblAnswerJump.Location = new System.Drawing.Point(10, 130);
+                this.lblAnswerJump.Size = new System.Drawing.Size(70, 25);
+                this.lblAnswerJump.Font = new Font("Roboto", this.lblType.Font.Size);
+                this.lblAnswerTitle.Font = new Font("Roboto", this.lblType.Font.Size);
+                this.lblAnswerTitle.ForeColor = Color.FromArgb(87, Color.Black);
+                this.lblAnswerJump.ForeColor = Color.FromArgb(87, Color.Black);
+                //TextBoxes
+                this.txtAnswerTitle.Location = new System.Drawing.Point(80, 100);
+                this.txtAnswerTitle.Size = new System.Drawing.Size(400, 25);
+                this.txtAnswerJump.Location = new System.Drawing.Point(80, 130);
+                this.txtAnswerJump.Size = new System.Drawing.Size(50, 25);
+                this.txtAnswerJump.Minimum = -1;
+                //Button
                 this.btnAnswer.Location = new System.Drawing.Point(80, 170);
-
+                //Add Controls to form
                 this.Controls.Add(txtAnswerTitle);
                 this.Controls.Add(txtAnswerJump);
                 this.Controls.Add(lblAnswerTitle);
                 this.Controls.Add(lblAnswerJump);
-
+                //Update variables
                 this.txtboxTitle.ReadOnly = true;
-                addingAnswers = true;
+                this.addingAnswers = true;
                 return;
             }
             else
@@ -191,7 +210,18 @@ namespace SurveyTool
         {
             string json = JsonConvert.SerializeObject(survey);
             System.IO.File.WriteAllText(@"D:\path.json", json);
+        }
 
+        private void formClosingEvent(object sender, FormClosingEventArgs e)
+        {
+            DialogResult dialog = MessageBox.Show("Deseja sair? ", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+            if (dialog == DialogResult.Yes)
+            {
+                return;
+            } else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }
