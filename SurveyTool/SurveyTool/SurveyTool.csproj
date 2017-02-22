@@ -140,8 +140,6 @@
   <ItemGroup>
     <Content Include="opt.ico" />
     <None Include="Resources\ic_add_black_24dp_1x.png" />
-    <None Include="Resources\ic_add_black_24dp_2x.png" />
-    <None Include="optLogo.png" />
   </ItemGroup>
   <ItemGroup>
     <BootstrapperPackage Include=".NETFramework,Version=v4.5.2">

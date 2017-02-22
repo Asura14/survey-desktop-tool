@@ -33,6 +33,12 @@ namespace SurveyTool
             initializeControls();
             initializeOnClicks();
             this.FormClosing += formClosingEvent;
+            this.HelpButtonClicked += QuestionForm_HelpButtonClicked;
+        }
+
+        private void QuestionForm_HelpButtonClicked(object sender, CancelEventArgs e)
+        {
+            //TODO
         }
 
         private void initializeOnClicks()
@@ -61,6 +67,7 @@ namespace SurveyTool
             this.txtboxTitle.Location = new System.Drawing.Point(80, 10);
             this.txtboxTitle.Size = new System.Drawing.Size(400, 25);
             this.txtboxTitle.ReadOnly = false;
+            this.txtboxTitle.Text = String.Empty;
             //Label - Tipo de pergunta
             this.lblType.Location = new System.Drawing.Point(10, 50);
             this.lblType.Size = new System.Drawing.Size(70, 50);
