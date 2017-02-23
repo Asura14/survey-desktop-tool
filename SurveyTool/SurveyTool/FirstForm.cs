@@ -61,9 +61,9 @@ namespace SurveyTool
             //Label
             this.lblTitle.Location=  new System.Drawing.Point(12, 9);
             this.lblTitle.Size = new System.Drawing.Size(50, 25);
-            this.labelTitle.ForeColor = Color.FromArgb(87, Color.Black);
-            this.labelIntro.ForeColor = Color.FromArgb(87, Color.Black);
-            this.labelOutro.ForeColor = Color.FromArgb(87, Color.Black);
+            this.labelTitle.ForeColor = Color.FromArgb(100, 34, 34, 34);
+            this.labelIntro.ForeColor = Color.FromArgb(100, 34, 34, 34);
+            this.labelOutro.ForeColor = Color.FromArgb(100, 34, 34, 34);
             this.labelOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
             this.labelIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
             this.labelTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
@@ -88,10 +88,10 @@ namespace SurveyTool
             this.btnDone.FlatAppearance.BorderSize = 0;
             this.btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
             this.btnDone.ForeColor = Color.FromArgb(100, 0, 103, 255);
-            //Text Box
-            this.txtBox.Text = "Texto";
-            this.txtBox.Location = new System.Drawing.Point(80, 25);
-            this.txtBox.Size = new System.Drawing.Size(425, 25);
+            //Text Boxes
+            this.textBoxTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
+            this.textBoxIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            this.textBoxOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
             //Update variables
             this.Controls.Add(btnDone);
         }
