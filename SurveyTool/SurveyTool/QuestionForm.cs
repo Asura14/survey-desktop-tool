@@ -61,19 +61,20 @@ namespace SurveyTool
             this.lblTitle.Location = new System.Drawing.Point(10, 10);
             this.lblTitle.Size = new System.Drawing.Size(70, 25);
             this.lblTitle.ForeColor = Color.FromArgb(87, Color.Black);
-            this.lblTitle.Font = new Font("Roboto", this.lblTitle.Font.Size);
             this.lblTitle.Text = "Pergunta";
+            this.lblTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
             // Text Box - Title
             this.txtboxTitle.Location = new System.Drawing.Point(80, 10);
             this.txtboxTitle.Size = new System.Drawing.Size(400, 25);
             this.txtboxTitle.ReadOnly = false;
             this.txtboxTitle.Text = String.Empty;
+            this.txtboxTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
             //Label - Tipo de pergunta
             this.lblType.Location = new System.Drawing.Point(10, 50);
             this.lblType.Size = new System.Drawing.Size(70, 50);
             this.lblType.Text = "Tipo de Pergunta";
             this.lblType.ForeColor = Color.FromArgb(87, Color.Black);
-            this.lblType.Font = new Font("Roboto", this.lblType.Font.Size);
+            this.lblType.Font = new Font("Roboto", 9, FontStyle.Regular);
             // ComboBox - Types
             this.cbType.Items.Clear();
             this.cbType.Items.Insert(0, "oneof");
@@ -85,21 +86,35 @@ namespace SurveyTool
             this.cbType.Size = new System.Drawing.Size(100, 25);
             this.cbType.Sorted = true;
             this.cbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            this.cbType.FlatStyle = FlatStyle.Popup;
             //Button - Next
-            this.btnAdd.Text = "Adicionar Pergunta";
-            this.btnAdd.Location = new System.Drawing.Point(160, 200);
-            this.btnAdd.Size = new System.Drawing.Size(150, 50);
-            this.btnAdd.Font = new Font("Roboto", this.lblTitle.Font.Size);
+            this.btnAdd.Text = "ADICIONAR PERGUNTA";
+            this.btnAdd.Location = new System.Drawing.Point(230, 200);
+            this.btnAdd.Size = new System.Drawing.Size(120, 50);
+            this.btnAdd.Font = new Font("Roboto", 11, FontStyle.Regular);
+            this.btnAdd.TabStop = false;
+            this.btnAdd.FlatStyle = FlatStyle.Flat;
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.BackColor = Color.FromArgb(0, 255, 255, 255);
+            this.btnAdd.ForeColor = Color.FromArgb(100, 20, 103, 255);
             //Button - End
-            this.btnDone.Text = "Finalizar";
-            this.btnDone.Location = new System.Drawing.Point(320, 200);
-            this.btnDone.Size = new System.Drawing.Size(150, 50);
-            this.btnDone.Font = new Font("Roboto", this.lblTitle.Font.Size);
+            this.btnDone.Text = "FINALIZAR";
+            this.btnDone.Location = new System.Drawing.Point(350, 200);
+            this.btnDone.Size = new System.Drawing.Size(120, 50);
+            this.btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
+            this.btnDone.TabStop = false;
+            this.btnDone.FlatStyle = FlatStyle.Flat;
+            this.btnDone.FlatAppearance.BorderSize = 0;
+            this.btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
+            this.btnDone.ForeColor = Color.FromArgb(100, 20, 103, 255);
             //Button - Add Answer
             this.btnAnswer.Image = Properties.Resources.add;
+            this.btnAnswer.ImageAlign = ContentAlignment.MiddleRight;
             this.btnAnswer.Location = new System.Drawing.Point(80, 90);
             this.btnAnswer.Size = new System.Drawing.Size(30, 30);
-            this.btnAnswer.Font = new Font("Roboto", this.lblTitle.Font.Size);
+            this.btnAnswer.FlatStyle = FlatStyle.Flat;
+            this.btnAnswer.FlatAppearance.BorderSize = 0;
+            this.btnAnswer.BackColor = Color.FromArgb(100, 20, 103, 255);
             //Add Controls to form
             this.Controls.Add(txtboxTitle);
             this.Controls.Add(lblTitle);
@@ -125,7 +140,7 @@ namespace SurveyTool
                     }
                     Console.WriteLine("Question added: " + question.Title + ", " + question.Type + ": " + answers.Count);
                     questions.Add(question);
-                    //Restart question
+                    //Restart question variables
                     this.addingAnswers = false;
                     this.answers.Clear();
                     this.Controls.Clear();
@@ -167,6 +182,7 @@ namespace SurveyTool
                     Console.WriteLine("Answer added: " + newAnswer.Title + " - " + newAnswer.Jump);
                     answers.Add(newAnswer);
                     MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                    //Restart answer variables
                     this.txtAnswerTitle.Text = "";
                     this.txtAnswerJump.Value = 0;
                     return;
@@ -185,8 +201,8 @@ namespace SurveyTool
                 this.lblAnswerTitle.Size = new System.Drawing.Size(70, 25);
                 this.lblAnswerJump.Location = new System.Drawing.Point(10, 130);
                 this.lblAnswerJump.Size = new System.Drawing.Size(70, 25);
-                this.lblAnswerJump.Font = new Font("Roboto", this.lblType.Font.Size);
-                this.lblAnswerTitle.Font = new Font("Roboto", this.lblType.Font.Size);
+                this.lblAnswerJump.Font = new Font("Roboto", 9, FontStyle.Regular);
+                this.lblAnswerTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
                 this.lblAnswerTitle.ForeColor = Color.FromArgb(87, Color.Black);
                 this.lblAnswerJump.ForeColor = Color.FromArgb(87, Color.Black);
                 //TextBoxes
@@ -195,14 +211,20 @@ namespace SurveyTool
                 this.txtAnswerJump.Location = new System.Drawing.Point(80, 130);
                 this.txtAnswerJump.Size = new System.Drawing.Size(50, 25);
                 this.txtAnswerJump.Minimum = -1;
-                //Button
-                this.btnAnswer.Location = new System.Drawing.Point(80, 170);
                 //Add Controls to form
                 this.Controls.Add(txtAnswerTitle);
-                this.Controls.Add(txtAnswerJump);
                 this.Controls.Add(lblAnswerTitle);
-                this.Controls.Add(lblAnswerJump);
-                //Update variables
+                if (type == "oneof")
+                {
+                    this.Controls.Add(txtAnswerJump);
+                    this.Controls.Add(lblAnswerJump);
+                    //Add Button Location
+                    this.btnAnswer.Location = new System.Drawing.Point(80, 170);
+                } else
+                {
+                    //Add Button Location
+                    this.btnAnswer.Location = new System.Drawing.Point(80, 130);
+                }
                 this.txtboxTitle.ReadOnly = true;
                 this.addingAnswers = true;
                 return;

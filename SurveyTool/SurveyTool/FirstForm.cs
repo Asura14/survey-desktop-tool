@@ -64,22 +64,30 @@ namespace SurveyTool
             this.labelTitle.ForeColor = Color.FromArgb(87, Color.Black);
             this.labelIntro.ForeColor = Color.FromArgb(87, Color.Black);
             this.labelOutro.ForeColor = Color.FromArgb(87, Color.Black);
-            this.labelTitle.Font = new Font("Roboto", this.labelTitle.Font.Size);
-            this.labelIntro.Font = new Font("Roboto", this.labelTitle.Font.Size);
-            this.labelOutro.Font = new Font("Roboto", this.labelTitle.Font.Size);
+            this.labelOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            this.labelIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            this.labelTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
             //Button next -> For question page
-            this.buttonNext.BackColor = Color.LightGray;
-            this.buttonNext.Text = "Começar";
+            this.buttonNext.Text = "CONTINUAR";
             this.buttonNext.Location = new System.Drawing.Point(320, 300);
-            this.buttonNext.Size = new System.Drawing.Size(100, 50);
-            this.buttonNext.Font = new Font("Roboto", this.lblTitle.Font.Size);
+            this.buttonNext.Size = new System.Drawing.Size(120, 50);
+            this.buttonNext.Font = new Font("Roboto", 11, FontStyle.Regular);
+            this.buttonNext.TabStop = false;
+            this.buttonNext.FlatStyle = FlatStyle.Flat;
+            this.buttonNext.FlatAppearance.BorderSize = 0;
+            this.buttonNext.BackColor = Color.FromArgb(0, 255, 255, 255);
+            this.buttonNext.ForeColor = Color.FromArgb(100, 20, 103, 255);
             //Button end
-            this.btnDone.BackColor = Color.LightGray;
-            this.btnDone.Text = "Sair";
+            this.btnDone.Text = "SAIR";
             this.btnDone.Location = new System.Drawing.Point(450, 300);
-            this.btnDone.Size = new System.Drawing.Size(100, 50);
+            this.btnDone.Size = new System.Drawing.Size(120, 50);
             this.btnDone.Click += new EventHandler(doneClick);
-            this.btnDone.Font = new Font("Roboto", this.lblTitle.Font.Size);
+            this.btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
+            this.btnDone.TabStop = false;
+            this.btnDone.FlatStyle = FlatStyle.Flat;
+            this.btnDone.FlatAppearance.BorderSize = 0;
+            this.btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
+            this.btnDone.ForeColor = Color.FromArgb(100, 0, 103, 255);
             //Text Box
             this.txtBox.Text = "Texto";
             this.txtBox.Location = new System.Drawing.Point(80, 25);
