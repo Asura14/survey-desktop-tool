@@ -36,7 +36,6 @@ namespace SurveyTool
                 survey.Title = title;
                 survey.Intro = intro;
                 survey.Outro = outro;
-                //Questions Start
                 QuestionForm questionForm = new QuestionForm(survey);
                 questionForm.Show();
                 this.Hide();
@@ -54,16 +53,13 @@ namespace SurveyTool
         private void initializeControls()
         {
             this.BackColor = Color.FromArgb(250,250,250);
-            this.ForeColor = Color.Black;
+            this.ForeColor = Color.FromArgb(100, 34, 34, 34);
             this.Text = "Novo Inquérito";
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.StartPosition = FormStartPosition.CenterScreen;
-            //Label
+            //Labels
             this.lblTitle.Location=  new System.Drawing.Point(12, 9);
             this.lblTitle.Size = new System.Drawing.Size(50, 25);
-            this.labelTitle.ForeColor = Color.FromArgb(100, 34, 34, 34);
-            this.labelIntro.ForeColor = Color.FromArgb(100, 34, 34, 34);
-            this.labelOutro.ForeColor = Color.FromArgb(100, 34, 34, 34);
             this.labelOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
             this.labelIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
             this.labelTitle.Font = new Font("Roboto", 12, FontStyle.Regular);

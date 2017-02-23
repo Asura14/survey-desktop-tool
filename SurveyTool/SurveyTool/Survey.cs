@@ -15,7 +15,7 @@ namespace SurveyTool
         public string ReleaseDate { get; set; }
         public List<Question> Questions { get; set; }
 
-        public Survey(string title, string intro, string outro )
+        public Survey(string title, string intro, string outro)
         {
             Title = title;
             Intro = intro;
@@ -81,9 +81,7 @@ namespace SurveyTool
                     break;
             }
             date += DateTime.Today.Year;
-
             return date;
-
         }
     }
 }

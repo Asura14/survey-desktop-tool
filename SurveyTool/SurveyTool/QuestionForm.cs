@@ -11,20 +11,20 @@ namespace SurveyTool
     {
         private Survey survey;
         private List<Question> questions = new List<Question>();
+        private List<Answer> answers = new List<Answer>();
         private Label lblType = new Label();
         private Label lblTitle = new Label();
+        private Label lblAnswerTitle = new Label();
+        private Label lblAnswerJump = new Label();
         private TextBox txtboxTitle = new TextBox();
+        private TextBox txtAnswerTitle = new TextBox();
+        private NumericUpDown txtAnswerJump = new NumericUpDown();
         private ComboBox cbType = new ComboBox();
         private Button btnAdd = new Button();
         private Button btnDone = new Button();
         private Button btnAnswer = new Button();
         private string title, type;
-        private List<Answer> answers = new List<Answer>();
         private bool addingAnswers = false;
-        private Label lblAnswerTitle = new Label();
-        private Label lblAnswerJump = new Label();
-        private TextBox txtAnswerTitle = new TextBox();
-        private NumericUpDown txtAnswerJump = new NumericUpDown();
 
         public QuestionForm(Survey survey)
         {
@@ -54,15 +54,14 @@ namespace SurveyTool
         {
             //Resources
             this.BackColor = Color.FromArgb(250, 250, 250);
-            this.ForeColor = Color.Black;
+            this.ForeColor = Color.FromArgb(100, 34, 34, 34);
             this.Text = "Nova | Pergunta " + (questions.Count + 1);
             this.FormBorderStyle = FormBorderStyle.FixedDialog;
             this.StartPosition = FormStartPosition.CenterScreen;
             this.Size = new System.Drawing.Size(500, 300);
             //Label - Titulo da pergunta
-            this.lblTitle.Location = new System.Drawing.Point(10, 10);
+            this.lblTitle.Location = new System.Drawing.Point(10, 13);
             this.lblTitle.Size = new System.Drawing.Size(70, 25);
-            this.lblTitle.ForeColor = Color.FromArgb(100, 34, 34, 34);
             this.lblTitle.Text = "Pergunta";
             this.lblTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
             // Text Box - Title
@@ -75,7 +74,6 @@ namespace SurveyTool
             this.lblType.Location = new System.Drawing.Point(10, 50);
             this.lblType.Size = new System.Drawing.Size(70, 50);
             this.lblType.Text = "Tipo de Pergunta";
-            this.lblType.ForeColor = Color.FromArgb(100, 34, 34, 34);
             this.lblType.Font = new Font("Roboto", 9, FontStyle.Regular);
             // ComboBox - Types
             this.cbType.Items.Clear();
@@ -143,7 +141,6 @@ namespace SurveyTool
                     }
                     Console.WriteLine("Question added: " + question.Title + ", " + question.Type + ": " + answers.Count);
                     questions.Add(question);
-                    //Restart question variables
                     this.addingAnswers = false;
                     this.answers.Clear();
                     this.Controls.Clear();
@@ -161,10 +158,9 @@ namespace SurveyTool
 
         protected void doneClick(object sender, EventArgs e)
         {
-            Console.WriteLine("Total Questions" + questions.Count);
             survey.Questions = questions;
             saveJSONFile();
-            DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
             if (dialog == DialogResult.OK)
             {
                 Application.Exit();
@@ -184,8 +180,7 @@ namespace SurveyTool
                     newAnswer.Jump = Convert.ToInt32(txtAnswerJump.Value);
                     Console.WriteLine("Answer added: " + newAnswer.Title + " - " + newAnswer.Jump);
                     answers.Add(newAnswer);
-                    MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    //Restart answer variables
+                    MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
                     this.txtAnswerTitle.Text = "";
                     this.txtAnswerJump.Value = 0;
                 } else
@@ -198,13 +193,11 @@ namespace SurveyTool
                 this.lblAnswerTitle.Text = "Resposta";
                 this.lblAnswerJump.Text = "Saltar para";
                 this.lblAnswerTitle.Location = new System.Drawing.Point(10, 100);
-                this.lblAnswerTitle.Size = new System.Drawing.Size(70, 25);
                 this.lblAnswerJump.Location = new System.Drawing.Point(10, 130);
+                this.lblAnswerTitle.Size = new System.Drawing.Size(70, 25);
                 this.lblAnswerJump.Size = new System.Drawing.Size(70, 25);
                 this.lblAnswerJump.Font = new Font("Roboto", 9, FontStyle.Regular);
                 this.lblAnswerTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
-                this.lblAnswerTitle.ForeColor = Color.FromArgb(100, 34, 34, 34);
-                this.lblAnswerJump.ForeColor = Color.FromArgb(100, 34, 34, 34);
                 //TextBoxes
                 this.txtAnswerTitle.Location = new System.Drawing.Point(80, 100);
                 this.txtAnswerTitle.Size = new System.Drawing.Size(400, 25);
@@ -218,11 +211,9 @@ namespace SurveyTool
                 {
                     this.Controls.Add(txtAnswerJump);
                     this.Controls.Add(lblAnswerJump);
-                    //Add Button Location
                     this.btnAnswer.Location = new System.Drawing.Point(80, 170);
                 } else
                 {
-                    //Add Button Location
                     this.btnAnswer.Location = new System.Drawing.Point(80, 130);
                 }
                 this.txtboxTitle.ReadOnly = true;
@@ -244,7 +235,7 @@ namespace SurveyTool
         {
             if(e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult dialog = MessageBox.Show("Deseja sair? ", "Informação", MessageBoxButtons.YesNo, MessageBoxIcon.Information);
+                DialogResult dialog = MessageBox.Show("Deseja sair? ", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialog == DialogResult.Yes)
                 {
                     Application.Exit();
