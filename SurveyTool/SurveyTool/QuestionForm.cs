@@ -228,7 +228,7 @@ namespace SurveyTool
         public void saveJSONFile()
         {
             string json = JsonConvert.SerializeObject(survey);
-            System.IO.File.WriteAllText(@"D:\path.json", json);
+            System.IO.File.WriteAllText(@"D:\survey.json", json);
         }
 
         private void Form1_Closing(object sender, FormClosingEventArgs e)
