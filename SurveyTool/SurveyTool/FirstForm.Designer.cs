@@ -63,6 +63,7 @@
             this.textBoxIntro.Location = new System.Drawing.Point(80, 62);
             this.textBoxIntro.Multiline = true;
             this.textBoxIntro.Name = "textBoxIntro";
+            this.textBoxIntro.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxIntro.Size = new System.Drawing.Size(425, 90);
             this.textBoxIntro.TabIndex = 3;
             // 
@@ -82,6 +83,7 @@
             this.textBoxOutro.Location = new System.Drawing.Point(80, 181);
             this.textBoxOutro.Multiline = true;
             this.textBoxOutro.Name = "textBoxOutro";
+            this.textBoxOutro.ScrollBars = System.Windows.Forms.ScrollBars.Vertical;
             this.textBoxOutro.Size = new System.Drawing.Size(425, 90);
             this.textBoxOutro.TabIndex = 5;
             // 

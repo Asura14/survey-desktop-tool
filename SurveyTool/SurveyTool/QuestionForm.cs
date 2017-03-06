@@ -180,9 +180,26 @@ namespace SurveyTool
                     newAnswer.Jump = Convert.ToInt32(txtAnswerJump.Value);
                     Console.WriteLine("Answer added: " + newAnswer.Title + " - " + newAnswer.Jump);
                     answers.Add(newAnswer);
-                    MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
-                    this.txtAnswerTitle.Text = "";
-                    this.txtAnswerJump.Value = 0;
+                    if(this.type == "fillint" || this.type == "fillstring")
+                    {
+                        Question question = new Question(questions.Count + 1, title, type);
+                        for (int i = 0; i < answers.Count; i++)
+                        {
+                            question.Answers.Add(answers[i]);
+                        }
+                        Console.WriteLine("Question added: " + question.Title + ", " + question.Type + ": " + answers.Count);
+                        questions.Add(question);
+                        this.addingAnswers = false;
+                        this.answers.Clear();
+                        this.Controls.Clear();
+                        initializeControls();
+                        return;
+                    } else
+                    {
+                        MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        this.txtAnswerTitle.Text = "";
+                        this.txtAnswerJump.Value = 0;
+                    }
                 } else
                 {
                     MessageBox.Show("Preencha os todos os campos da resposta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -227,10 +244,11 @@ namespace SurveyTool
 
         public void saveJSONFile()
         {
+            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\survey.json";
             string json = JsonConvert.SerializeObject(survey);
-            System.IO.File.WriteAllText(@"D:\path.json", json);
+            System.IO.File.WriteAllText(strPath, json);
         }
-
+            
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
             if(e.CloseReason == CloseReason.UserClosing)
