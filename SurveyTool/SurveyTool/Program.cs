@@ -8,13 +8,10 @@ namespace SurveyTool
         [STAThread]
         static void Main()
         {
-
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             FirstForm firstForm = new FirstForm();
             Application.Run(firstForm);
-            
-
         }
     }
 }

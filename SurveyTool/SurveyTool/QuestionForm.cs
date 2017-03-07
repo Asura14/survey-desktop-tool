@@ -4,6 +4,7 @@ using System.Windows.Forms;
 using System.Collections.Generic;
 using Newtonsoft.Json;
 using System.ComponentModel;
+using System.IO;
 
 namespace SurveyTool
 {
@@ -38,7 +39,11 @@ namespace SurveyTool
 
         private void QuestionForm_HelpButtonClicked(object sender, CancelEventArgs e)
         {
-            //TODO
+            string path = Path.Combine(Directory.GetCurrentDirectory(), "Manual.pdf");
+            //System.Diagnostics.Process.Start(path); //TODO
+            String openPDFFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Manual.pdf";
+            System.IO.File.WriteAllBytes(openPDFFile, global::SurveyTool.Properties.Resources.Manual);
+            System.Diagnostics.Process.Start(openPDFFile);
             Console.WriteLine("Help Buton pressed");
             e.Cancel = true;
         }
@@ -192,6 +197,8 @@ namespace SurveyTool
                         this.addingAnswers = false;
                         this.answers.Clear();
                         this.Controls.Clear();
+                        this.txtAnswerTitle.Text = "";
+                        this.txtAnswerJump.Value = 0;
                         initializeControls();
                         return;
                     } else
@@ -224,7 +231,7 @@ namespace SurveyTool
                 //Add Controls to form
                 this.Controls.Add(txtAnswerTitle);
                 this.Controls.Add(lblAnswerTitle);
-                if (type == "oneof")
+                if (type == "oneof" || type == "dropdown")
                 {
                     this.Controls.Add(txtAnswerJump);
                     this.Controls.Add(lblAnswerJump);

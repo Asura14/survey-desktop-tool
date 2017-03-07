@@ -132,6 +132,7 @@
       <DependentUpon>Settings.settings</DependentUpon>
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
+    <None Include="Resources\Manual.pdf" />
     <None Include="SurveyTool_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
