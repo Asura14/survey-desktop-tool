@@ -40,7 +40,6 @@ namespace SurveyTool
         private void QuestionForm_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             string path = Path.Combine(Directory.GetCurrentDirectory(), "Manual.pdf");
-            //System.Diagnostics.Process.Start(path); //TODO
             String openPDFFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Manual.pdf";
             System.IO.File.WriteAllBytes(openPDFFile, global::SurveyTool.Properties.Resources.Manual);
             System.Diagnostics.Process.Start(openPDFFile);
@@ -254,8 +253,9 @@ namespace SurveyTool
             string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\survey.json";
             string json = JsonConvert.SerializeObject(survey);
             System.IO.File.WriteAllText(strPath, json);
+            System.Diagnostics.Process.Start(strPath);
         }
-            
+        
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
             if(e.CloseReason == CloseReason.UserClosing)
