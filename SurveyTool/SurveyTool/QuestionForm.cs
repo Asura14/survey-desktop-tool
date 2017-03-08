@@ -164,11 +164,6 @@ namespace SurveyTool
         {
             survey.Questions = questions;
             saveJSONFile();
-            DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
-            if (dialog == DialogResult.OK)
-            {
-                Application.Exit();
-            }
         }
 
         protected void newAnswerClick(object sender, EventArgs e)
@@ -227,7 +222,7 @@ namespace SurveyTool
                 this.txtAnswerJump.Location = new System.Drawing.Point(80, 130);
                 this.txtAnswerJump.Size = new System.Drawing.Size(50, 25);
                 this.txtAnswerJump.Minimum = -1;
-                //Add Controls to form
+                //Add Controls
                 this.Controls.Add(txtAnswerTitle);
                 this.Controls.Add(lblAnswerTitle);
                 if (type == "oneof" || type == "dropdown")
@@ -250,10 +245,27 @@ namespace SurveyTool
 
         public void saveJSONFile()
         {
-            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\survey.json";
+            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "SurveyTool");
+            if (!System.IO.Directory.Exists(path))
+            {
+                try
+                {
+                    System.IO.Directory.CreateDirectory(path);
+                }
+                catch (IOException ie)
+                {
+                    Console.WriteLine("IO Error: " + ie.Message);
+                }
+            }
+            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\survey.json";
             string json = JsonConvert.SerializeObject(survey);
             System.IO.File.WriteAllText(strPath, json);
-            System.Diagnostics.Process.Start(strPath);
+            DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
+            if (dialog == DialogResult.OK)
+            {
+                System.Diagnostics.Process.Start(strPath);
+                Application.Exit();
+            }
         }
         
         private void Form1_Closing(object sender, FormClosingEventArgs e)
