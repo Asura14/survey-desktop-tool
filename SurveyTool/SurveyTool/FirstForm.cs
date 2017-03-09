@@ -62,7 +62,6 @@ namespace SurveyTool
             this.buttonNext.Location = new System.Drawing.Point(320, 300);
             this.buttonNext.Size = new System.Drawing.Size(120, 50);
             this.buttonNext.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.buttonNext.TabStop = false;
             this.buttonNext.FlatStyle = FlatStyle.Flat;
             this.buttonNext.FlatAppearance.BorderSize = 0;
             this.buttonNext.BackColor = Color.FromArgb(0, 255, 255, 255);
@@ -73,7 +72,6 @@ namespace SurveyTool
             this.btnDone.Size = new System.Drawing.Size(120, 50);
             this.btnDone.Click += new EventHandler(doneClick);
             this.btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.btnDone.TabStop = false;
             this.btnDone.FlatStyle = FlatStyle.Flat;
             this.btnDone.FlatAppearance.BorderSize = 0;
             this.btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);

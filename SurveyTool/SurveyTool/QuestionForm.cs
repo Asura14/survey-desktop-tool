@@ -97,7 +97,6 @@ namespace SurveyTool
             this.btnAdd.Location = new System.Drawing.Point(230, 200);
             this.btnAdd.Size = new System.Drawing.Size(120, 50);
             this.btnAdd.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.btnAdd.TabStop = false;
             this.btnAdd.FlatStyle = FlatStyle.Flat;
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.BackColor = Color.FromArgb(0, 255, 255, 255);
@@ -107,7 +106,6 @@ namespace SurveyTool
             this.btnDone.Location = new System.Drawing.Point(350, 200);
             this.btnDone.Size = new System.Drawing.Size(120, 50);
             this.btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.btnDone.TabStop = false;
             this.btnDone.FlatStyle = FlatStyle.Flat;
             this.btnDone.FlatAppearance.BorderSize = 0;
             this.btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
@@ -125,9 +123,9 @@ namespace SurveyTool
             this.Controls.Add(lblTitle);
             this.Controls.Add(lblType);
             this.Controls.Add(cbType);
+            this.Controls.Add(btnAnswer);
             this.Controls.Add(btnAdd);
             this.Controls.Add(btnDone);
-            this.Controls.Add(btnAnswer);
         }
 
         void addClick(object sender, EventArgs e)
@@ -248,16 +246,9 @@ namespace SurveyTool
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "SurveyTool");
             if (!System.IO.Directory.Exists(path))
             {
-                try
-                {
-                    System.IO.Directory.CreateDirectory(path);
-                }
-                catch (IOException ie)
-                {
-                    Console.WriteLine("IO Error: " + ie.Message);
-                }
+                System.IO.Directory.CreateDirectory(path);
             }
-            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\survey.json";
+            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Title +".json";
             string json = JsonConvert.SerializeObject(survey);
             System.IO.File.WriteAllText(strPath, json);
             DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
