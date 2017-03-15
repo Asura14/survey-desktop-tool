@@ -151,8 +151,7 @@ namespace SurveyTool
                 {
                     MessageBox.Show("Adicione pelo menos uma resposta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
-            }
-            else
+            } else
             {
                 MessageBox.Show("Preencha todos os campos em falta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -210,7 +209,7 @@ namespace SurveyTool
                 this.lblAnswerJump.Text = "Saltar para";
                 this.lblAnswerTitle.Location = new System.Drawing.Point(10, 100);
                 this.lblAnswerJump.Location = new System.Drawing.Point(10, 130);
-                this.lblAnswerTitle.Size = new System.Drawing.Size(70, 25);
+                this.lblAnswerTitle.Size = new System.Drawing.Size(70, 50);
                 this.lblAnswerJump.Size = new System.Drawing.Size(70, 25);
                 this.lblAnswerJump.Font = new Font("Roboto", 9, FontStyle.Regular);
                 this.lblAnswerTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
@@ -230,6 +229,10 @@ namespace SurveyTool
                     this.btnAnswer.Location = new System.Drawing.Point(80, 170);
                 } else
                 {
+                    if(type == "fillint" || type == "fillstring")
+                    {
+                        this.lblAnswerTitle.Text = "Ajuda na Resposta";
+                    }
                     this.btnAnswer.Location = new System.Drawing.Point(80, 130);
                 }
                 this.txtboxTitle.ReadOnly = true;
@@ -267,8 +270,7 @@ namespace SurveyTool
                 if (dialog == DialogResult.Yes)
                 {
                     Application.Exit();
-                }
-                else
+                } else
                 {
                     e.Cancel = true;
                 }
