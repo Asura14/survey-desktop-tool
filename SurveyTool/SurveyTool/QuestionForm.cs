@@ -43,7 +43,6 @@ namespace SurveyTool
             String openPDFFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Manual.pdf";
             System.IO.File.WriteAllBytes(openPDFFile, global::SurveyTool.Properties.Resources.Manual);
             System.Diagnostics.Process.Start(openPDFFile);
-            Console.WriteLine("Help Buton pressed");
             e.Cancel = true;
         }
 
@@ -161,7 +160,7 @@ namespace SurveyTool
         {
             survey.Questions = questions;
             saveJSONFile();
-        }
+        }   
 
         protected void newAnswerClick(object sender, EventArgs e)
         {
@@ -231,7 +230,7 @@ namespace SurveyTool
                 {
                     if(type == "fillint" || type == "fillstring")
                     {
-                        this.lblAnswerTitle.Text = "Ajuda na Resposta";
+                        this.lblAnswerTitle.Text = "Dica na Resposta";
                     }
                     this.btnAnswer.Location = new System.Drawing.Point(80, 130);
                 }
@@ -253,7 +252,6 @@ namespace SurveyTool
             }
             string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Title +".json";
             string json = JsonConvert.SerializeObject(survey);
-            System.IO.File.WriteAllText(strPath, json);
             DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
             if (dialog == DialogResult.OK)
             {
@@ -266,7 +264,7 @@ namespace SurveyTool
         {
             if(e.CloseReason == CloseReason.UserClosing)
             {
-                DialogResult dialog = MessageBox.Show("Deseja sair? ", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
+                DialogResult dialog = MessageBox.Show("Sair sem guardar? ", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialog == DialogResult.Yes)
                 {
                     Application.Exit();
