@@ -16,7 +16,7 @@ namespace SurveyTool
         private Label lblType = new Label();
         private Label lblTitle = new Label();
         private Label lblAnswerTitle = new Label();
-        private Label lblAnswerJump = new Label();
+        private Label lblAnswerJumpTo = new Label();
         private TextBox txtboxTitle = new TextBox();
         private TextBox txtAnswerTitle = new TextBox();
         private NumericUpDown txtAnswerJump = new NumericUpDown();
@@ -205,17 +205,17 @@ namespace SurveyTool
             {
                 //Labels
                 this.lblAnswerTitle.Text = "Resposta";
-                this.lblAnswerJump.Text = "Saltar para";
+                this.lblAnswerJumpTo.Text = "Saltar para";
                 this.lblAnswerTitle.Location = new System.Drawing.Point(10, 100);
-                this.lblAnswerJump.Location = new System.Drawing.Point(10, 130);
-                this.lblAnswerTitle.Size = new System.Drawing.Size(70, 50);
-                this.lblAnswerJump.Size = new System.Drawing.Size(70, 25);
-                this.lblAnswerJump.Font = new Font("Roboto", 9, FontStyle.Regular);
+                this.lblAnswerJumpTo.Location = new System.Drawing.Point(10, 140);
+                this.lblAnswerTitle.Size = new System.Drawing.Size(80, 40);
+                this.lblAnswerJumpTo.Size = new System.Drawing.Size(80, 40);
                 this.lblAnswerTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
+                this.lblAnswerJumpTo.Font = new Font("Roboto", 9, FontStyle.Regular);
                 //TextBoxes
-                this.txtAnswerTitle.Location = new System.Drawing.Point(80, 100);
-                this.txtAnswerTitle.Size = new System.Drawing.Size(400, 25);
-                this.txtAnswerJump.Location = new System.Drawing.Point(80, 130);
+                this.txtAnswerTitle.Location = new System.Drawing.Point(90, 100);
+                this.txtAnswerJump.Location = new System.Drawing.Point(90, 140);
+                this.txtAnswerTitle.Size = new System.Drawing.Size(390, 25);
                 this.txtAnswerJump.Size = new System.Drawing.Size(50, 25);
                 this.txtAnswerJump.Minimum = -1;
                 //Add Controls
@@ -223,12 +223,13 @@ namespace SurveyTool
                 this.Controls.Add(lblAnswerTitle);
                 if (type == "oneof" || type == "dropdown")
                 {
+                    this.Controls.Add(lblAnswerJumpTo);
                     this.Controls.Add(txtAnswerJump);
-                    this.Controls.Add(lblAnswerJump);
                     this.btnAnswer.Location = new System.Drawing.Point(80, 170);
+                    
                 } else
                 {
-                    if(type == "fillint" || type == "fillstring")
+                    if (type == "fillint" || type == "fillstring")
                     {
                         this.lblAnswerTitle.Text = "Dica na Resposta";
                     }
