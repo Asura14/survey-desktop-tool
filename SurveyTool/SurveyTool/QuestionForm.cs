@@ -253,6 +253,7 @@ namespace SurveyTool
             }
             string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Title +".json";
             string json = JsonConvert.SerializeObject(survey);
+            File.WriteAllText(strPath, json);
             DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
             if (dialog == DialogResult.OK)
             {
