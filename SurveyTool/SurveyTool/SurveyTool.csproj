@@ -52,6 +52,7 @@
     <DefineConstants>TRACE</DefineConstants>
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
   </PropertyGroup>
   <PropertyGroup>
     <ApplicationIcon>opt.ico</ApplicationIcon>
@@ -93,24 +94,24 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Answer.cs" />
-    <Compile Include="FirstForm.cs">
+    <Compile Include="DataClasses\Answer.cs" />
+    <Compile Include="Forms\FirstForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="FirstForm.Designer.cs">
+    <Compile Include="Forms\FirstForm.Designer.cs">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="Question.cs" />
-    <Compile Include="QuestionForm.cs">
+    <Compile Include="DataClasses\Question.cs" />
+    <Compile Include="Forms\QuestionForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="QuestionForm.Designer.cs">
+    <Compile Include="Forms\QuestionForm.Designer.cs">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Survey.cs" />
-    <EmbeddedResource Include="FirstForm.resx">
+    <Compile Include="DataClasses\Survey.cs" />
+    <EmbeddedResource Include="Forms\FirstForm.resx">
       <DependentUpon>FirstForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
@@ -123,7 +124,7 @@
       <DependentUpon>Resources.resx</DependentUpon>
       <DesignTime>True</DesignTime>
     </Compile>
-    <EmbeddedResource Include="QuestionForm.resx">
+    <EmbeddedResource Include="Forms\QuestionForm.resx">
       <DependentUpon>QuestionForm.cs</DependentUpon>
     </EmbeddedResource>
     <None Include="packages.config" />
@@ -138,7 +139,6 @@
     </Compile>
     <None Include="Resources\Manual - Ferramenta de Criação de Inquéritos.pdf" />
     <None Include="Resources\Manual.pdf" />
-    <None Include="SurveyTool_TemporaryKey.pfx" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
