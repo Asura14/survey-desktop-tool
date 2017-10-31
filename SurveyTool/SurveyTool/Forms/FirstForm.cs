@@ -13,6 +13,9 @@ namespace SurveyTool
         private Button btnDone = new Button();
         private Label lblTitle = new Label();
 
+        /// <summary>
+        ///  Form where the user fills surveys information (before the questions/answers).
+        /// </summary>
         public FirstForm()
         {
             survey = new Survey();
@@ -20,6 +23,9 @@ namespace SurveyTool
             InitializeControls();
         }
 
+        /// <summary>
+        ///  Saves user input (if filled) and starts the next form.
+        /// </summary>
         private void ButtonNext_Click(object sender, EventArgs e)
         {
             string title = textBoxTitle.Text;
@@ -39,11 +45,17 @@ namespace SurveyTool
             }
         }
 
+        /// <summary>
+        ///  Closes the application.
+        /// </summary>
         private void DoneClick(object sender, EventArgs e)
         {
             Close();
         }
 
+        /// <summary>
+        ///  Initializes the form and it's elements/controls.
+        /// </summary>
         private void InitializeControls()
         {
             BackColor = Color.FromArgb(250,250,250);

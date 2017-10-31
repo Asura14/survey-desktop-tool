@@ -6,13 +6,42 @@ using System.Threading.Tasks;
 
 namespace SurveyTool
 {
+    /// <summary>
+    ///  Survey Class
+    /// </summary>
     public class Survey
     {
+        /// <summary>
+        ///  Survey Title.
+        /// </summary>
         public string Title { get; set; }
+
+        /// <summary>
+        ///  Survey Intro.
+        ///  Small text which the inquirer says in the begining.
+        /// </summary>
         public string Intro { get; set; }
+
+        /// <summary>
+        ///  Survey Outro.
+        ///  Small text which the inquirer says in the end.
+        /// </summary>
         public string Outro { get; set; }
+
+        /// <summary>
+        ///  Survey version.
+        /// </summary>
         public int Version { get; set; }
+
+        /// <summary>
+        ///  Survey Release Date.
+        /// </summary>
         public string ReleaseDate { get; set; }
+
+        /// <summary>
+        ///  Survey Questions.
+        ///  List of survey's questions, has to be 1 or more.
+        /// </summary>
         public List<Question> Questions { get; set; }
 
         public Survey(string title, string intro, string outro)
@@ -35,6 +64,9 @@ namespace SurveyTool
             Questions = new List<Question>();
         }
 
+        /// <summary>
+        ///  Obtains survey's month in the intended format.
+        /// </summary>
         private string SurveyDate()
         {
             string date = "";

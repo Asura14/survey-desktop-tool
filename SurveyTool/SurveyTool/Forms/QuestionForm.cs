@@ -27,6 +27,9 @@ namespace SurveyTool
         private string title, type;
         private bool addingAnswers = false;
 
+        /// <summary>
+        ///  Form where the user fills the question and answer fields.
+        /// </summary>
         public QuestionForm(Survey survey)
         {
             this.survey = survey;
@@ -37,6 +40,9 @@ namespace SurveyTool
             HelpButtonClicked += QuestionForm_HelpButtonClicked;
         }
 
+        /// <summary>
+        ///  Help button opens a pdf file that serves as a user guide.
+        /// </summary>
         private void QuestionForm_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             string path = Path.Combine(Directory.GetCurrentDirectory(), "Manual.pdf");
@@ -46,6 +52,9 @@ namespace SurveyTool
             e.Cancel = true;
         }
 
+        /// <summary>
+        ///  Adds eventHandlers to each button.
+        /// </summary>
         private void InitializeOnClicks()
         {
             btnAnswer.Click += new EventHandler(NewAnswerClick);
@@ -53,6 +62,9 @@ namespace SurveyTool
             btnDone.Click += new EventHandler(DoneClick);
         }
 
+        /// <summary>
+        ///  Initializes the form and it's elements.
+        /// </summary>
         private void InitializeControls()
         {
             //Resources
@@ -127,6 +139,9 @@ namespace SurveyTool
             Controls.Add(btnDone);
         }
 
+        /// <summary>
+        ///  Adds a question to the survey, question fields as well as respective answers must be filled first.
+        /// </summary>
         void AddClick(object sender, EventArgs e)
         {
             title = txtboxTitle.Text;
@@ -157,6 +172,10 @@ namespace SurveyTool
             }
         }
 
+        /// <summary>
+        ///  When the finish button is clicked.
+        ///  Closes application and opens file.
+        /// </summary>
         protected void DoneClick(object sender, EventArgs e)
         {
             survey.Questions = questions;
@@ -169,6 +188,9 @@ namespace SurveyTool
             }
         }
 
+        /// <summary>
+        ///  Shows answer fields, if they are hidden, otherwise, adds answer to survey.
+        /// </summary>
         protected void NewAnswerClick(object sender, EventArgs e)
         {
             title = txtboxTitle.Text;
@@ -256,6 +278,11 @@ namespace SurveyTool
             }
         }
 
+        /// <summary>
+        ///  Saves JSON file in the desktop in a folder "SurveyTool".
+        ///  Shows Dialog informing the user that the file has been saved.
+        ///  returns json file path.
+        /// </summary>
         public string SaveJSONFile()
         {
             string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "SurveyTool");
@@ -269,6 +296,10 @@ namespace SurveyTool
             return strPath;
         }
 
+        /// <summary>
+        ///  Shows Dialog warning user that the application will close.
+        ///  If users accepts, closes the application.
+        /// </summary>
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
             if (e.CloseReason == CloseReason.UserClosing)
