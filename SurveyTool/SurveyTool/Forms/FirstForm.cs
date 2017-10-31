@@ -32,7 +32,7 @@ namespace SurveyTool
                 survey.Outro = outro;
                 QuestionForm questionForm = new QuestionForm(survey);
                 questionForm.Show();
-                this.Hide();
+                Hide();
             } else
             {
                 MessageBox.Show("Preencha os campos em falta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -41,47 +41,47 @@ namespace SurveyTool
 
         private void DoneClick(object sender, EventArgs e)
         {
-            this.Close();
+            Close();
         }
 
         private void InitializeControls()
         {
-            this.BackColor = Color.FromArgb(250,250,250);
-            this.ForeColor = Color.FromArgb(100, 34, 34, 34);
-            this.Text = "Novo Inquérito";
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterScreen;
+            BackColor = Color.FromArgb(250,250,250);
+            ForeColor = Color.FromArgb(100, 34, 34, 34);
+            Text = "Novo Inquérito";
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            StartPosition = FormStartPosition.CenterScreen;
             //Labels
-            this.lblTitle.Location=  new System.Drawing.Point(12, 9);
-            this.lblTitle.Size = new System.Drawing.Size(50, 25);
-            this.labelOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
-            this.labelIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
-            this.labelTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
+            lblTitle.Location=  new Point(12, 9);
+            lblTitle.Size = new Size(50, 25);
+            labelOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            labelIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            labelTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
             //Button next -> For question page
-            this.buttonNext.Text = "CONTINUAR";
-            this.buttonNext.Location = new System.Drawing.Point(320, 300);
-            this.buttonNext.Size = new System.Drawing.Size(120, 50);
-            this.buttonNext.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.buttonNext.FlatStyle = FlatStyle.Flat;
-            this.buttonNext.FlatAppearance.BorderSize = 0;
-            this.buttonNext.BackColor = Color.FromArgb(0, 255, 255, 255);
-            this.buttonNext.ForeColor = Color.FromArgb(100, 20, 103, 255);
+            buttonNext.Text = "CONTINUAR";
+            buttonNext.Location = new Point(320, 300);
+            buttonNext.Size = new Size(120, 50);
+            buttonNext.Font = new Font("Roboto", 11, FontStyle.Regular);
+            buttonNext.FlatStyle = FlatStyle.Flat;
+            buttonNext.FlatAppearance.BorderSize = 0;
+            buttonNext.BackColor = Color.FromArgb(0, 255, 255, 255);
+            buttonNext.ForeColor = Color.FromArgb(100, 20, 103, 255);
             //Button end
-            this.btnDone.Text = "SAIR";
-            this.btnDone.Location = new System.Drawing.Point(450, 300);
-            this.btnDone.Size = new System.Drawing.Size(120, 50);
-            this.btnDone.Click += new EventHandler(DoneClick);
-            this.btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.btnDone.FlatStyle = FlatStyle.Flat;
-            this.btnDone.FlatAppearance.BorderSize = 0;
-            this.btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
-            this.btnDone.ForeColor = Color.FromArgb(100, 0, 103, 255);
+            btnDone.Text = "SAIR";
+            btnDone.Location = new Point(450, 300);
+            btnDone.Size = new Size(120, 50);
+            btnDone.Click += new EventHandler(DoneClick);
+            btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
+            btnDone.FlatStyle = FlatStyle.Flat;
+            btnDone.FlatAppearance.BorderSize = 0;
+            btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
+            btnDone.ForeColor = Color.FromArgb(100, 0, 103, 255);
             //Text Boxes
-            this.textBoxTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
-            this.textBoxIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
-            this.textBoxOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            textBoxTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
+            textBoxIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            textBoxOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
             //Update variables
-            this.Controls.Add(btnDone);
+            Controls.Add(btnDone);
         }
     }
 }

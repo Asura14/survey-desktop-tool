@@ -33,124 +33,125 @@ namespace SurveyTool
             InitializeComponent();
             InitializeControls();
             InitializeOnClicks();
-            this.FormClosing += Form1_Closing;
-            this.HelpButtonClicked += QuestionForm_HelpButtonClicked;
+            FormClosing += Form1_Closing;
+            HelpButtonClicked += QuestionForm_HelpButtonClicked;
         }
 
         private void QuestionForm_HelpButtonClicked(object sender, CancelEventArgs e)
         {
             string path = Path.Combine(Directory.GetCurrentDirectory(), "Manual.pdf");
             String openPDFFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Manual.pdf";
-            System.IO.File.WriteAllBytes(openPDFFile, global::SurveyTool.Properties.Resources.Manual);
+            File.WriteAllBytes(openPDFFile, Properties.Resources.Manual);
             System.Diagnostics.Process.Start(openPDFFile);
             e.Cancel = true;
         }
 
         private void InitializeOnClicks()
         {
-            this.btnAnswer.Click += new EventHandler(NewAnswerClick);
-            this.btnAdd.Click += new EventHandler(AddClick);
-            this.btnDone.Click += new EventHandler(DoneClick);
+            btnAnswer.Click += new EventHandler(NewAnswerClick);
+            btnAdd.Click += new EventHandler(AddClick);
+            btnDone.Click += new EventHandler(DoneClick);
         }
 
         private void InitializeControls()
         {
             //Resources
-            this.BackColor = Color.FromArgb(250, 250, 250);
-            this.ForeColor = Color.FromArgb(100, 34, 34, 34);
-            this.Text = "Nova | Pergunta " + (questions.Count + 1);
-            this.FormBorderStyle = FormBorderStyle.FixedDialog;
-            this.StartPosition = FormStartPosition.CenterScreen;
-            this.Size = new System.Drawing.Size(500, 300);
+            BackColor = Color.FromArgb(250, 250, 250);
+            ForeColor = Color.FromArgb(100, 34, 34, 34);
+            Text = "Nova | Pergunta " + (questions.Count + 1);
+            FormBorderStyle = FormBorderStyle.FixedDialog;
+            StartPosition = FormStartPosition.CenterScreen;
+            Size = new Size(500, 300);
             //Label - Titulo da pergunta
-            this.lblTitle.Location = new System.Drawing.Point(10, 13);
-            this.lblTitle.Size = new System.Drawing.Size(70, 25);
-            this.lblTitle.Text = "Pergunta";
-            this.lblTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
+            lblTitle.Location = new Point(10, 13);
+            lblTitle.Size = new Size(70, 25);
+            lblTitle.Text = "Pergunta";
+            lblTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
             // Text Box - Title
-            this.txtboxTitle.Location = new System.Drawing.Point(80, 10);
-            this.txtboxTitle.Size = new System.Drawing.Size(400, 25);
-            this.txtboxTitle.ReadOnly = false;
-            this.txtboxTitle.Text = String.Empty;
-            this.txtboxTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
+            txtboxTitle.Location = new Point(80, 10);
+            txtboxTitle.Size = new Size(400, 25);
+            txtboxTitle.ReadOnly = false;
+            txtboxTitle.Text = String.Empty;
+            txtboxTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
             //Label - Tipo de pergunta
-            this.lblType.Location = new System.Drawing.Point(10, 50);
-            this.lblType.Size = new System.Drawing.Size(70, 50);
-            this.lblType.Text = "Tipo de Pergunta";
-            this.lblType.Font = new Font("Roboto", 9, FontStyle.Regular);
+            lblType.Location = new Point(10, 50);
+            lblType.Size = new Size(70, 50);
+            lblType.Text = "Tipo de Pergunta";
+            lblType.Font = new Font("Roboto", 9, FontStyle.Regular);
             // ComboBox - Types
-            this.cbType.Items.Clear();
-            this.cbType.Items.Insert(0, "oneof");
-            this.cbType.Items.Insert(1, "atleast");
-            this.cbType.Items.Insert(2, "dropdown");
-            this.cbType.Items.Insert(3, "fillstring");
-            this.cbType.Items.Insert(4, "fillint");
-            this.cbType.Location = new System.Drawing.Point(80, 50);
-            this.cbType.Size = new System.Drawing.Size(100, 25);
-            this.cbType.Sorted = true;
-            this.cbType.DropDownStyle = ComboBoxStyle.DropDownList;
-            this.cbType.FlatStyle = FlatStyle.Popup;
-            this.cbType.Enabled = true;
+            cbType.Items.Clear();
+            cbType.Items.Insert(0, "oneof");
+            cbType.Items.Insert(1, "atleast");
+            cbType.Items.Insert(2, "dropdown");
+            cbType.Items.Insert(3, "fillstring");
+            cbType.Items.Insert(4, "fillint");
+            cbType.Location = new Point(80, 50);
+            cbType.Size = new Size(100, 25);
+            cbType.Sorted = true;
+            cbType.DropDownStyle = ComboBoxStyle.DropDownList;
+            cbType.FlatStyle = FlatStyle.Popup;
+            cbType.Enabled = true;
             //Button - Next
-            this.btnAdd.Text = "ADICIONAR PERGUNTA";
-            this.btnAdd.Location = new System.Drawing.Point(230, 200);
-            this.btnAdd.Size = new System.Drawing.Size(120, 50);
-            this.btnAdd.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.btnAdd.FlatStyle = FlatStyle.Flat;
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.BackColor = Color.FromArgb(0, 255, 255, 255);
-            this.btnAdd.ForeColor = Color.FromArgb(100, 20, 103, 255);
+            btnAdd.Text = "ADICIONAR PERGUNTA";
+            btnAdd.Location = new Point(230, 200);
+            btnAdd.Size = new Size(120, 50);
+            btnAdd.Font = new Font("Roboto", 11, FontStyle.Regular);
+            btnAdd.FlatStyle = FlatStyle.Flat;
+            btnAdd.FlatAppearance.BorderSize = 0;
+            btnAdd.BackColor = Color.FromArgb(0, 255, 255, 255);
+            btnAdd.ForeColor = Color.FromArgb(100, 20, 103, 255);
             //Button - End
-            this.btnDone.Text = "FINALIZAR";
-            this.btnDone.Location = new System.Drawing.Point(350, 200);
-            this.btnDone.Size = new System.Drawing.Size(120, 50);
-            this.btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
-            this.btnDone.FlatStyle = FlatStyle.Flat;
-            this.btnDone.FlatAppearance.BorderSize = 0;
-            this.btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
-            this.btnDone.ForeColor = Color.FromArgb(100, 20, 103, 255);
+            btnDone.Text = "FINALIZAR";
+            btnDone.Location = new Point(350, 200);
+            btnDone.Size = new Size(120, 50);
+            btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
+            btnDone.FlatStyle = FlatStyle.Flat;
+            btnDone.FlatAppearance.BorderSize = 0;
+            btnDone.BackColor = Color.FromArgb(0, 255, 255, 255);
+            btnDone.ForeColor = Color.FromArgb(100, 20, 103, 255);
             //Button - Add Answer
-            this.btnAnswer.Image = Properties.Resources.add;
-            this.btnAnswer.ImageAlign = ContentAlignment.MiddleRight;
-            this.btnAnswer.Location = new System.Drawing.Point(80, 90);
-            this.btnAnswer.Size = new System.Drawing.Size(30, 30);
-            this.btnAnswer.FlatStyle = FlatStyle.Flat;
-            this.btnAnswer.FlatAppearance.BorderSize = 0;
-            this.btnAnswer.BackColor = Color.FromArgb(100, 239, 239, 239);
+            btnAnswer.Image = Properties.Resources.add;
+            btnAnswer.ImageAlign = ContentAlignment.MiddleRight;
+            btnAnswer.Location = new Point(80, 90);
+            btnAnswer.Size = new Size(30, 30);
+            btnAnswer.FlatStyle = FlatStyle.Flat;
+            btnAnswer.FlatAppearance.BorderSize = 0;
+            btnAnswer.BackColor = Color.FromArgb(100, 239, 239, 239);
             //Add Controls to form
-            this.Controls.Add(txtboxTitle);
-            this.Controls.Add(lblTitle);
-            this.Controls.Add(lblType);
-            this.Controls.Add(cbType);
-            this.Controls.Add(btnAnswer);
-            this.Controls.Add(btnAdd);
-            this.Controls.Add(btnDone);
+            Controls.Add(txtboxTitle);
+            Controls.Add(lblTitle);
+            Controls.Add(lblType);
+            Controls.Add(cbType);
+            Controls.Add(btnAnswer);
+            Controls.Add(btnAdd);
+            Controls.Add(btnDone);
         }
 
         void AddClick(object sender, EventArgs e)
         {
-            this.title = txtboxTitle.Text;
-            this.type = cbType.Text;
+            title = txtboxTitle.Text;
+            type = cbType.Text;
             if (title.Length > 0 && type.Length > 0)
             {
-                if(answers.Count > 0)
+                if (answers.Count > 0)
                 {
                     Question question = new Question(questions.Count + 1, title, type);
-                    for(int i = 0; i < answers.Count; i++)
+                    for (int i = 0; i < answers.Count; i++)
                     {
                         question.Answers.Add(answers[i]);
                     }
-                    Console.WriteLine("Question added: " + question.Title + ", " + question.Type + ": " + answers.Count);
                     questions.Add(question);
-                    this.addingAnswers = false;
-                    this.answers.Clear();
-                    this.Controls.Clear();
+                    addingAnswers = false;
+                    answers.Clear();
+                    Controls.Clear();
                     InitializeControls();
-                } else
+                }
+                else
                 {
                     MessageBox.Show("Adicione pelo menos uma resposta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
                 }
-            } else
+            }
+            else
             {
                 MessageBox.Show("Preencha todos os campos em falta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -159,101 +160,7 @@ namespace SurveyTool
         protected void DoneClick(object sender, EventArgs e)
         {
             survey.Questions = questions;
-            SaveJSONFile();
-        }   
-
-        protected void NewAnswerClick(object sender, EventArgs e)
-        {
-            this.title = txtboxTitle.Text;
-            this.type = cbType.Text;
-            if(addingAnswers)
-            {
-                if (txtAnswerTitle.Text.Length > 0 && txtAnswerJump.Value >= -1)
-                {
-                    Answer newAnswer = new Answer();
-                    newAnswer.Title = txtAnswerTitle.Text;
-                    newAnswer.Jump = Convert.ToInt32(txtAnswerJump.Value);
-                    Console.WriteLine("Answer added: " + newAnswer.Title + " - " + newAnswer.Jump);
-                    answers.Add(newAnswer);
-                    if(this.type == "fillint" || this.type == "fillstring")
-                    {
-                        Question question = new Question(questions.Count + 1, title, type);
-                        for (int i = 0; i < answers.Count; i++)
-                        {
-                            question.Answers.Add(answers[i]);
-                        }
-                        Console.WriteLine("Question added: " + question.Title + ", " + question.Type + ": " + answers.Count);
-                        questions.Add(question);
-                        this.addingAnswers = false;
-                        this.answers.Clear();
-                        this.Controls.Clear();
-                        this.txtAnswerTitle.Text = "";
-                        this.txtAnswerJump.Value = 0;
-                        InitializeControls();
-                        return;
-                    } else
-                    {
-                        MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        this.txtAnswerTitle.Text = "";
-                        this.txtAnswerJump.Value = 0;
-                    }
-                } else
-                {
-                    MessageBox.Show("Preencha os todos os campos da resposta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-                }
-            } else if (title.Length > 0 && type.Length > 0)
-            {
-                //Labels
-                this.lblAnswerTitle.Text = "Resposta";
-                this.lblAnswerJumpTo.Text = "Saltar para";
-                this.lblAnswerTitle.Location = new System.Drawing.Point(10, 100);
-                this.lblAnswerJumpTo.Location = new System.Drawing.Point(10, 140);
-                this.lblAnswerTitle.Size = new System.Drawing.Size(80, 40);
-                this.lblAnswerJumpTo.Size = new System.Drawing.Size(80, 40);
-                this.lblAnswerTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
-                this.lblAnswerJumpTo.Font = new Font("Roboto", 9, FontStyle.Regular);
-                //TextBoxes
-                this.txtAnswerTitle.Location = new System.Drawing.Point(90, 100);
-                this.txtAnswerJump.Location = new System.Drawing.Point(90, 140);
-                this.txtAnswerTitle.Size = new System.Drawing.Size(390, 25);
-                this.txtAnswerJump.Size = new System.Drawing.Size(50, 25);
-                this.txtAnswerJump.Minimum = -1;
-                //Add Controls
-                this.Controls.Add(txtAnswerTitle);
-                this.Controls.Add(lblAnswerTitle);
-                if (type == "oneof" || type == "dropdown")
-                {
-                    this.Controls.Add(lblAnswerJumpTo);
-                    this.Controls.Add(txtAnswerJump);
-                    this.btnAnswer.Location = new System.Drawing.Point(80, 170);
-                    
-                } else
-                {
-                    if (type == "fillint" || type == "fillstring")
-                    {
-                        this.lblAnswerTitle.Text = "Dica na Resposta";
-                    }
-                    this.btnAnswer.Location = new System.Drawing.Point(80, 130);
-                }
-                this.txtboxTitle.ReadOnly = true;
-                this.cbType.Enabled = false;
-                this.addingAnswers = true;
-            } else
-            {
-                MessageBox.Show("Preencha a pergunta e o tipo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
-            }
-        }
-
-        public void SaveJSONFile()
-        {
-            string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "SurveyTool");
-            if (!System.IO.Directory.Exists(path))
-            {
-                System.IO.Directory.CreateDirectory(path);
-            }
-            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Title +".json";
-            string json = JsonConvert.SerializeObject(survey);
-            File.WriteAllText(strPath, json);
+            string strPath = SaveJSONFile();
             DialogResult dialog = MessageBox.Show(questions.Count + " Perguntas adicionadas", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
             if (dialog == DialogResult.OK)
             {
@@ -261,16 +168,117 @@ namespace SurveyTool
                 Application.Exit();
             }
         }
-        
+
+        protected void NewAnswerClick(object sender, EventArgs e)
+        {
+            title = txtboxTitle.Text;
+            type = cbType.Text;
+            if (addingAnswers)
+            {
+                if (txtAnswerTitle.Text.Length > 0 && txtAnswerJump.Value >= -1)
+                {
+                    Answer newAnswer = new Answer
+                    {
+                        Title = txtAnswerTitle.Text,
+                        Jump = Convert.ToInt32(txtAnswerJump.Value)
+                    };
+                    answers.Add(newAnswer);
+                    if (type == "fillint" || type == "fillstring")
+                    {
+                        Question question = new Question(questions.Count + 1, title, type);
+                        for (int i = 0; i < answers.Count; i++)
+                        {
+                            question.Answers.Add(answers[i]);
+                        }
+                        questions.Add(question);
+                        addingAnswers = false;
+                        answers.Clear();
+                        Controls.Clear();
+                        txtAnswerTitle.Text = "";
+                        txtAnswerJump.Value = 0;
+                        InitializeControls();
+                        return;
+                    }
+                    else
+                    {
+                        MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
+                        txtAnswerTitle.Text = "";
+                        txtAnswerJump.Value = 0;
+                    }
+                }
+                else
+                {
+                    MessageBox.Show("Preencha os todos os campos da resposta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+                }
+            }
+            else if (title.Length > 0 && type.Length > 0)
+            {
+                //Labels
+                lblAnswerTitle.Text = "Resposta";
+                lblAnswerJumpTo.Text = "Saltar para";
+                lblAnswerTitle.Location = new Point(10, 100);
+                lblAnswerJumpTo.Location = new Point(10, 140);
+                lblAnswerTitle.Size = new Size(80, 40);
+                lblAnswerJumpTo.Size = new Size(80, 40);
+                lblAnswerTitle.Font = new Font("Roboto", 9, FontStyle.Regular);
+                lblAnswerJumpTo.Font = new Font("Roboto", 9, FontStyle.Regular);
+                //TextBoxes
+                txtAnswerTitle.Location = new Point(90, 100);
+                txtAnswerJump.Location = new Point(90, 140);
+                txtAnswerTitle.Size = new Size(390, 25);
+                txtAnswerJump.Size = new Size(50, 25);
+                txtAnswerJump.Minimum = -1;
+                //Add Controls
+                Controls.Add(txtAnswerTitle);
+                Controls.Add(lblAnswerTitle);
+                if (type == "oneof" || type == "dropdown")
+                {
+                    this.Controls.Add(lblAnswerJumpTo);
+                    this.Controls.Add(txtAnswerJump);
+                    this.btnAnswer.Location = new Point(80, 170);
+
+                }
+                else
+                {
+                    if (type == "fillint" || type == "fillstring")
+                    {
+                        lblAnswerTitle.Text = "Dica na Resposta";
+                    }
+                    btnAnswer.Location = new Point(80, 130);
+                }
+                txtboxTitle.ReadOnly = true;
+                cbType.Enabled = false;
+                addingAnswers = true;
+            }
+            else
+            {
+                MessageBox.Show("Preencha a pergunta e o tipo", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
+            }
+        }
+
+        public string SaveJSONFile()
+        {
+            string path = Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "SurveyTool");
+            if (!Directory.Exists(path))
+            {
+                Directory.CreateDirectory(path);
+            }
+            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Title + ".json";
+            string json = JsonConvert.SerializeObject(survey);
+            File.WriteAllText(strPath, json);
+            return strPath;
+        }
+
         private void Form1_Closing(object sender, FormClosingEventArgs e)
         {
-            if(e.CloseReason == CloseReason.UserClosing)
+            if (e.CloseReason == CloseReason.UserClosing)
             {
                 DialogResult dialog = MessageBox.Show("Sair sem guardar? ", "Aviso", MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
                 if (dialog == DialogResult.Yes)
                 {
                     Application.Exit();
-                } else
+                }
+                else
                 {
                     e.Cancel = true;
                 }
