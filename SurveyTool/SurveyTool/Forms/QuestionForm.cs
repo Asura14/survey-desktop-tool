@@ -31,8 +31,8 @@ namespace SurveyTool
         {
             this.survey = survey;
             InitializeComponent();
-            initializeControls();
-            initializeOnClicks();
+            InitializeControls();
+            InitializeOnClicks();
             this.FormClosing += Form1_Closing;
             this.HelpButtonClicked += QuestionForm_HelpButtonClicked;
         }
@@ -46,14 +46,14 @@ namespace SurveyTool
             e.Cancel = true;
         }
 
-        private void initializeOnClicks()
+        private void InitializeOnClicks()
         {
-            this.btnAnswer.Click += new EventHandler(newAnswerClick);
-            this.btnAdd.Click += new EventHandler(addClick);
-            this.btnDone.Click += new EventHandler(doneClick);
+            this.btnAnswer.Click += new EventHandler(NewAnswerClick);
+            this.btnAdd.Click += new EventHandler(AddClick);
+            this.btnDone.Click += new EventHandler(DoneClick);
         }
 
-        private void initializeControls()
+        private void InitializeControls()
         {
             //Resources
             this.BackColor = Color.FromArgb(250, 250, 250);
@@ -127,7 +127,7 @@ namespace SurveyTool
             this.Controls.Add(btnDone);
         }
 
-        void addClick(object sender, EventArgs e)
+        void AddClick(object sender, EventArgs e)
         {
             this.title = txtboxTitle.Text;
             this.type = cbType.Text;
@@ -145,7 +145,7 @@ namespace SurveyTool
                     this.addingAnswers = false;
                     this.answers.Clear();
                     this.Controls.Clear();
-                    initializeControls();
+                    InitializeControls();
                 } else
                 {
                     MessageBox.Show("Adicione pelo menos uma resposta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
@@ -156,13 +156,13 @@ namespace SurveyTool
             }
         }
 
-        protected void doneClick(object sender, EventArgs e)
+        protected void DoneClick(object sender, EventArgs e)
         {
             survey.Questions = questions;
-            saveJSONFile();
+            SaveJSONFile();
         }   
 
-        protected void newAnswerClick(object sender, EventArgs e)
+        protected void NewAnswerClick(object sender, EventArgs e)
         {
             this.title = txtboxTitle.Text;
             this.type = cbType.Text;
@@ -189,7 +189,7 @@ namespace SurveyTool
                         this.Controls.Clear();
                         this.txtAnswerTitle.Text = "";
                         this.txtAnswerJump.Value = 0;
-                        initializeControls();
+                        InitializeControls();
                         return;
                     } else
                     {
@@ -244,7 +244,7 @@ namespace SurveyTool
             }
         }
 
-        public void saveJSONFile()
+        public void SaveJSONFile()
         {
             string path = System.IO.Path.Combine(Environment.GetFolderPath(Environment.SpecialFolder.Desktop), "SurveyTool");
             if (!System.IO.Directory.Exists(path))

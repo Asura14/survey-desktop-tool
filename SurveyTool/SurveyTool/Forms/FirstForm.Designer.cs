@@ -106,7 +106,7 @@
             this.buttonNext.TabIndex = 6;
             this.buttonNext.Text = "Next";
             this.buttonNext.UseVisualStyleBackColor = true;
-            this.buttonNext.Click += new System.EventHandler(this.buttonNext_Click);
+            this.buttonNext.Click += new System.EventHandler(this.ButtonNext_Click);
             // 
             // FirstForm
             // 

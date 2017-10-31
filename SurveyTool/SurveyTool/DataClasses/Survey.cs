@@ -21,7 +21,7 @@ namespace SurveyTool
             Intro = intro;
             Outro = outro;
             Version = 1;
-            ReleaseDate = surveyDate();
+            ReleaseDate = SurveyDate();
             Questions = new List<Question>();
         }
 
@@ -31,11 +31,11 @@ namespace SurveyTool
             Intro = "";
             Outro = "";
             Version = 1;
-            ReleaseDate = surveyDate();
+            ReleaseDate = SurveyDate();
             Questions = new List<Question>();
         }
 
-        private string surveyDate()
+        private string SurveyDate()
         {
             string date = "";
             int month = DateTime.Today.Month;

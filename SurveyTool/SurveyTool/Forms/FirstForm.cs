@@ -17,10 +17,10 @@ namespace SurveyTool
         {
             survey = new Survey();
             InitializeComponent();
-            initializeControls();
+            InitializeControls();
         }
 
-        private void buttonNext_Click(object sender, EventArgs e)
+        private void ButtonNext_Click(object sender, EventArgs e)
         {
             string title = textBoxTitle.Text;
             string intro = textBoxIntro.Text;
@@ -39,12 +39,12 @@ namespace SurveyTool
             }
         }
 
-        private void doneClick(object sender, EventArgs e)
+        private void DoneClick(object sender, EventArgs e)
         {
             this.Close();
         }
 
-        private void initializeControls()
+        private void InitializeControls()
         {
             this.BackColor = Color.FromArgb(250,250,250);
             this.ForeColor = Color.FromArgb(100, 34, 34, 34);
@@ -70,7 +70,7 @@ namespace SurveyTool
             this.btnDone.Text = "SAIR";
             this.btnDone.Location = new System.Drawing.Point(450, 300);
             this.btnDone.Size = new System.Drawing.Size(120, 50);
-            this.btnDone.Click += new EventHandler(doneClick);
+            this.btnDone.Click += new EventHandler(DoneClick);
             this.btnDone.Font = new Font("Roboto", 11, FontStyle.Regular);
             this.btnDone.FlatStyle = FlatStyle.Flat;
             this.btnDone.FlatAppearance.BorderSize = 0;
