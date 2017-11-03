@@ -255,9 +255,9 @@ namespace SurveyTool
                 Controls.Add(lblAnswerTitle);
                 if (type == "oneof" || type == "dropdown")
                 {
-                    this.Controls.Add(lblAnswerJumpTo);
-                    this.Controls.Add(txtAnswerJump);
-                    this.btnAnswer.Location = new Point(80, 170);
+                    Controls.Add(lblAnswerJumpTo);
+                    Controls.Add(txtAnswerJump);
+                    btnAnswer.Location = new Point(80, 170);
 
                 }
                 else

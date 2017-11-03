@@ -10,8 +10,7 @@ namespace SurveyTool
         {
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            FirstForm firstForm = new FirstForm();
-            Application.Run(firstForm);
+            Application.Run(new FirstForm());
         }
     }
 }
