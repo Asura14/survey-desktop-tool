@@ -258,7 +258,6 @@ namespace SurveyTool
                     Controls.Add(lblAnswerJumpTo);
                     Controls.Add(txtAnswerJump);
                     btnAnswer.Location = new Point(80, 170);
-
                 }
                 else
                 {
@@ -290,7 +289,7 @@ namespace SurveyTool
             {
                 Directory.CreateDirectory(path);
             }
-            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Title + ".json";
+            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Code + ".json";
             string json = JsonConvert.SerializeObject(survey);
             File.WriteAllText(strPath, json);
             return strPath;

@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SurveyTool
 {
@@ -32,6 +30,9 @@ namespace SurveyTool
         ///  Survey version.
         /// </summary>
         public int Version { get; set; }
+
+        [JsonIgnore]
+        public string Code { get; set; }
 
         /// <summary>
         ///  Survey Release Date.
