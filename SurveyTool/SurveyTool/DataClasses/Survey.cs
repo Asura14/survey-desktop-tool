@@ -31,6 +31,9 @@ namespace SurveyTool
         /// </summary>
         public int Version { get; set; }
 
+        /// <summary>
+        ///  Survey code, used as filename and what the App users use to open a specific survey.
+        /// </summary>
         [JsonIgnore]
         public string Code { get; set; }
 
