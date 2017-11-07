@@ -54,16 +54,18 @@ namespace SurveyTool
             Intro = intro;
             Outro = outro;
             Version = 1;
+            Code = "survey";
             ReleaseDate = SurveyDate();
             Questions = new List<Question>();
         }
 
         public Survey()
         {
-            Title = "";
-            Intro = "";
-            Outro = "";
+            Title = String.Empty;
+            Intro = String.Empty;
+            Outro = String.Empty;
             Version = 1;
+            Code = "survey";
             ReleaseDate = SurveyDate();
             Questions = new List<Question>();
         }
@@ -73,7 +75,7 @@ namespace SurveyTool
         /// </summary>
         private string SurveyDate()
         {
-            string date = "";
+            string date = String.Empty;
             int month = DateTime.Today.Month;
             switch (month)
             {

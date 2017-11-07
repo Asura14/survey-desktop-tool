@@ -216,7 +216,7 @@ namespace SurveyTool
                         addingAnswers = false;
                         answers.Clear();
                         Controls.Clear();
-                        txtAnswerTitle.Text = "";
+                        txtAnswerTitle.Text = String.Empty;
                         txtAnswerJump.Value = 0;
                         InitializeControls();
                         return;
@@ -224,7 +224,7 @@ namespace SurveyTool
                     else
                     {
                         MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        txtAnswerTitle.Text = "";
+                        txtAnswerTitle.Text = String.Empty;
                         txtAnswerJump.Value = 0;
                     }
                 }

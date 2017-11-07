@@ -24,7 +24,7 @@
 
         public Answer()
         {
-            Title = "";
+            Title = string.Empty;
             Jump = 0;
         }
     }
