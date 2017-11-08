@@ -39,7 +39,6 @@ namespace SurveyTool
         /// </summary>
         private void QuestionForm_HelpButtonClicked(object sender, CancelEventArgs e)
         {
-            string path = Path.Combine(Directory.GetCurrentDirectory(), "Manual.pdf");
             String openPDFFile = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\Manual.pdf";
             File.WriteAllBytes(openPDFFile, Properties.Resources.Manual);
             System.Diagnostics.Process.Start(openPDFFile);
