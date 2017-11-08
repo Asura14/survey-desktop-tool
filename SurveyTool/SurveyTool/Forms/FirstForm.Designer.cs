@@ -36,15 +36,17 @@
             this.textBoxOutro = new System.Windows.Forms.TextBox();
             this.labelOutro = new System.Windows.Forms.Label();
             this.buttonNext = new System.Windows.Forms.Button();
+            this.labelCode = new System.Windows.Forms.Label();
+            this.textBoxCode = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // labelTitle
             // 
             this.labelTitle.AutoSize = true;
-            this.labelTitle.Font = new System.Drawing.Font("Arial Unicode MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelTitle.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelTitle.Location = new System.Drawing.Point(12, 9);
             this.labelTitle.Name = "labelTitle";
-            this.labelTitle.Size = new System.Drawing.Size(60, 26);
+            this.labelTitle.Size = new System.Drawing.Size(60, 25);
             this.labelTitle.TabIndex = 0;
             this.labelTitle.Text = "Titulo";
             // 
@@ -70,10 +72,10 @@
             // labelIntro
             // 
             this.labelIntro.AutoSize = true;
-            this.labelIntro.Font = new System.Drawing.Font("Arial Unicode MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelIntro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelIntro.Location = new System.Drawing.Point(12, 61);
             this.labelIntro.Name = "labelIntro";
-            this.labelIntro.Size = new System.Drawing.Size(52, 26);
+            this.labelIntro.Size = new System.Drawing.Size(50, 25);
             this.labelIntro.TabIndex = 2;
             this.labelIntro.Text = "Intro";
             // 
@@ -90,10 +92,10 @@
             // labelOutro
             // 
             this.labelOutro.AutoSize = true;
-            this.labelOutro.Font = new System.Drawing.Font("Arial Unicode MS", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.labelOutro.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.labelOutro.Location = new System.Drawing.Point(12, 180);
             this.labelOutro.Name = "labelOutro";
-            this.labelOutro.Size = new System.Drawing.Size(63, 26);
+            this.labelOutro.Size = new System.Drawing.Size(61, 25);
             this.labelOutro.TabIndex = 4;
             this.labelOutro.Text = "Outro";
             // 
@@ -108,12 +110,33 @@
             this.buttonNext.UseVisualStyleBackColor = true;
             this.buttonNext.Click += new System.EventHandler(this.ButtonNext_Click);
             // 
+            // labelCode
+            // 
+            this.labelCode.AutoSize = true;
+            this.labelCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 15F);
+            this.labelCode.Location = new System.Drawing.Point(12, 293);
+            this.labelCode.Name = "labelCode";
+            this.labelCode.Size = new System.Drawing.Size(75, 25);
+            this.labelCode.TabIndex = 7;
+            this.labelCode.Text = "Código";
+            // 
+            // textBoxCode
+            // 
+            this.textBoxCode.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.textBoxCode.Location = new System.Drawing.Point(93, 292);
+            this.textBoxCode.MaxLength = 20;
+            this.textBoxCode.Name = "textBoxCode";
+            this.textBoxCode.Size = new System.Drawing.Size(95, 26);
+            this.textBoxCode.TabIndex = 8;
+            // 
             // FirstForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(584, 361);
             this.ControlBox = false;
+            this.Controls.Add(this.textBoxCode);
+            this.Controls.Add(this.labelCode);
             this.Controls.Add(this.buttonNext);
             this.Controls.Add(this.textBoxOutro);
             this.Controls.Add(this.labelOutro);
@@ -138,6 +161,8 @@
         private System.Windows.Forms.Label labelOutro;
         private System.Windows.Forms.Button buttonNext;
         private System.Windows.Forms.TextBox textBoxTitle;
+        private System.Windows.Forms.Label labelCode;
+        private System.Windows.Forms.TextBox textBoxCode;
     }
 }
 

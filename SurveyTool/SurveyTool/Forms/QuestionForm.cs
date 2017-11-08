@@ -13,17 +13,11 @@ namespace SurveyTool
         private Survey survey;
         private List<Question> questions = new List<Question>();
         private List<Answer> answers = new List<Answer>();
-        private Label lblType = new Label();
-        private Label lblTitle = new Label();
-        private Label lblAnswerTitle = new Label();
-        private Label lblAnswerJumpTo = new Label();
-        private TextBox txtboxTitle = new TextBox();
-        private TextBox txtAnswerTitle = new TextBox();
+        private Label lblType = new Label(), lblTitle = new Label(), lblAnswerTitle = new Label(), lblAnswerJumpTo = new Label();
+        private TextBox txtboxTitle = new TextBox(), txtAnswerTitle = new TextBox();
         private NumericUpDown txtAnswerJump = new NumericUpDown();
         private ComboBox cbType = new ComboBox();
-        private Button btnAdd = new Button();
-        private Button btnDone = new Button();
-        private Button btnAnswer = new Button();
+        private Button btnAdd = new Button(), btnDone = new Button(), btnAnswer = new Button();
         private string title, type;
         private bool addingAnswers = false;
 
@@ -216,7 +210,7 @@ namespace SurveyTool
                         addingAnswers = false;
                         answers.Clear();
                         Controls.Clear();
-                        txtAnswerTitle.Text = "";
+                        txtAnswerTitle.Text = String.Empty;
                         txtAnswerJump.Value = 0;
                         InitializeControls();
                         return;
@@ -224,7 +218,7 @@ namespace SurveyTool
                     else
                     {
                         MessageBox.Show("Resposta adicionada", "Informação", MessageBoxButtons.OK, MessageBoxIcon.None);
-                        txtAnswerTitle.Text = "";
+                        txtAnswerTitle.Text = String.Empty;
                         txtAnswerJump.Value = 0;
                     }
                 }
@@ -258,7 +252,6 @@ namespace SurveyTool
                     Controls.Add(lblAnswerJumpTo);
                     Controls.Add(txtAnswerJump);
                     btnAnswer.Location = new Point(80, 170);
-
                 }
                 else
                 {
@@ -290,7 +283,7 @@ namespace SurveyTool
             {
                 Directory.CreateDirectory(path);
             }
-            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Title + ".json";
+            string strPath = Environment.GetFolderPath(Environment.SpecialFolder.DesktopDirectory) + @"\SurveyTool\" + survey.Code + ".json";
             string json = JsonConvert.SerializeObject(survey);
             File.WriteAllText(strPath, json);
             return strPath;

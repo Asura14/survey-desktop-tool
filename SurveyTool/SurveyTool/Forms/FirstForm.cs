@@ -31,15 +31,18 @@ namespace SurveyTool
             string title = textBoxTitle.Text;
             string intro = textBoxIntro.Text;
             string outro = textBoxOutro.Text;
-            if (title.Length > 0 && intro.Length > 0 && outro.Length > 0)
+            string code = textBoxCode.Text;
+            if (title.Length > 0 && intro.Length > 0 && outro.Length > 0 && code.Length > 0)
             {
                 survey.Title = title;
                 survey.Intro = intro;
                 survey.Outro = outro;
+                survey.Code = code;
                 QuestionForm questionForm = new QuestionForm(survey);
                 questionForm.Show();
                 Hide();
-            } else
+            }
+            else
             {
                 MessageBox.Show("Preencha os campos em falta", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Asterisk);
             }
@@ -65,10 +68,12 @@ namespace SurveyTool
             StartPosition = FormStartPosition.CenterScreen;
             //Labels
             lblTitle.Location=  new Point(12, 9);
+            labelCode.Location = new Point(12, 290);
             lblTitle.Size = new Size(50, 25);
             labelOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
             labelIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
             labelTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
+            labelCode.Font = new Font("Roboto", 12, FontStyle.Regular);
             //Button next -> For question page
             buttonNext.Text = "CONTINUAR";
             buttonNext.Location = new Point(320, 300);
@@ -92,6 +97,8 @@ namespace SurveyTool
             textBoxTitle.Font = new Font("Roboto", 12, FontStyle.Regular);
             textBoxIntro.Font = new Font("Roboto", 12, FontStyle.Regular);
             textBoxOutro.Font = new Font("Roboto", 12, FontStyle.Regular);
+            textBoxCode.Font = new Font("Roboto", 12, FontStyle.Regular);
+            textBoxCode.Location = new Point(80, 290);
             //Update variables
             Controls.Add(btnDone);
         }

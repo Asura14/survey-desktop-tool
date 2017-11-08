@@ -1,8 +1,6 @@
-﻿using System;
+﻿using Newtonsoft.Json;
+using System;
 using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 
 namespace SurveyTool
 {
@@ -34,6 +32,12 @@ namespace SurveyTool
         public int Version { get; set; }
 
         /// <summary>
+        ///  Survey code, used as filename and what the App users use to open a specific survey.
+        /// </summary>
+        [JsonIgnore]
+        public string Code { get; set; }
+
+        /// <summary>
         ///  Survey Release Date.
         /// </summary>
         public string ReleaseDate { get; set; }
@@ -50,16 +54,18 @@ namespace SurveyTool
             Intro = intro;
             Outro = outro;
             Version = 1;
+            Code = "survey";
             ReleaseDate = SurveyDate();
             Questions = new List<Question>();
         }
 
         public Survey()
         {
-            Title = "";
-            Intro = "";
-            Outro = "";
+            Title = String.Empty;
+            Intro = String.Empty;
+            Outro = String.Empty;
             Version = 1;
+            Code = "survey";
             ReleaseDate = SurveyDate();
             Questions = new List<Question>();
         }
@@ -69,7 +75,7 @@ namespace SurveyTool
         /// </summary>
         private string SurveyDate()
         {
-            string date = "";
+            string date = String.Empty;
             int month = DateTime.Today.Month;
             switch (month)
             {
