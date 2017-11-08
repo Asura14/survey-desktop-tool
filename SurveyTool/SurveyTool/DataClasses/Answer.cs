@@ -10,6 +10,7 @@
         ///  Can either be an option or a hint.
         /// </summary>
         public string Title { get; set; }
+
         /// <summary>
         ///  jump for the answer.
         ///  The question the user should jump to in case he answers/picks this answer.

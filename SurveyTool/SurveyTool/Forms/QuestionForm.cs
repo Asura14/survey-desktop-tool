@@ -13,17 +13,11 @@ namespace SurveyTool
         private Survey survey;
         private List<Question> questions = new List<Question>();
         private List<Answer> answers = new List<Answer>();
-        private Label lblType = new Label();
-        private Label lblTitle = new Label();
-        private Label lblAnswerTitle = new Label();
-        private Label lblAnswerJumpTo = new Label();
-        private TextBox txtboxTitle = new TextBox();
-        private TextBox txtAnswerTitle = new TextBox();
+        private Label lblType = new Label(), lblTitle = new Label(), lblAnswerTitle = new Label(), lblAnswerJumpTo = new Label();
+        private TextBox txtboxTitle = new TextBox(), txtAnswerTitle = new TextBox();
         private NumericUpDown txtAnswerJump = new NumericUpDown();
         private ComboBox cbType = new ComboBox();
-        private Button btnAdd = new Button();
-        private Button btnDone = new Button();
-        private Button btnAnswer = new Button();
+        private Button btnAdd = new Button(), btnDone = new Button(), btnAnswer = new Button();
         private string title, type;
         private bool addingAnswers = false;
 

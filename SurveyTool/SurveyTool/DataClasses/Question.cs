@@ -28,10 +28,10 @@ namespace SurveyTool
         
         public Question(int id, string title, string type)
         {
-            this.Id = id;
-            this.Title = title;
-            this.Type = type;
-            this.Answers = new List<Answer>();
+            Id = id;
+            Title = title;
+            Type = type;
+            Answers = new List<Answer>();
         }
     }
 }
