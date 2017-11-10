@@ -9,8 +9,7 @@ namespace SurveyTool
         private Survey survey;
         //Controls
         private TextBox txtBox = new TextBox();
-        private Button btnNext = new Button();
-        private Button btnDone = new Button();
+        private Button btnNext = new Button(), btnDone = new Button();
         private Label lblTitle = new Label();
 
         /// <summary>

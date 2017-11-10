@@ -201,11 +201,10 @@ namespace SurveyTool
                     answers.Add(newAnswer);
                     if (type == "fillint" || type == "fillstring")
                     {
-                        Question question = new Question(questions.Count + 1, title, type);
-                        for (int i = 0; i < answers.Count; i++)
+                        Question question = new Question(questions.Count + 1, title, type)
                         {
-                            question.Answers.Add(answers[i]);
-                        }
+                            Answers = answers
+                        };
                         questions.Add(question);
                         addingAnswers = false;
                         answers.Clear();
@@ -255,11 +254,11 @@ namespace SurveyTool
                 }
                 else
                 {
+                    btnAnswer.Location = new Point(80, 130);
                     if (type == "fillint" || type == "fillstring")
                     {
                         lblAnswerTitle.Text = "Dica na Resposta";
                     }
-                    btnAnswer.Location = new Point(80, 130);
                 }
                 txtboxTitle.ReadOnly = true;
                 cbType.Enabled = false;
