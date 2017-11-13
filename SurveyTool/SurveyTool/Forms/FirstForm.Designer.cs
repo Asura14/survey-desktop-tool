@@ -126,7 +126,7 @@
             this.textBoxCode.Location = new System.Drawing.Point(93, 292);
             this.textBoxCode.MaxLength = 20;
             this.textBoxCode.Name = "textBoxCode";
-            this.textBoxCode.Size = new System.Drawing.Size(95, 26);
+            this.textBoxCode.Size = new System.Drawing.Size(180, 26);
             this.textBoxCode.TabIndex = 8;
             // 
             // FirstForm

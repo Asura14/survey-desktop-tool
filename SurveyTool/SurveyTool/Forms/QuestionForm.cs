@@ -144,11 +144,10 @@ namespace SurveyTool
             {
                 if (answers.Count > 0)
                 {
-                    Question question = new Question(questions.Count + 1, title, type);
-                    for (int i = 0; i < answers.Count; i++)
+                    Question question = new Question(questions.Count + 1, title, type)
                     {
-                        question.Answers.Add(answers[i]);
-                    }
+                        Answers = answers
+                    };
                     questions.Add(question);
                     addingAnswers = false;
                     answers.Clear();
